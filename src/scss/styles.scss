@@ -36,6 +36,11 @@
 
 // 8. Add additional custom code here
 // @import "~bootstrap/scss/bootstrap";
+.hero {
+  display: grid;
+  gap: 16px;
+}
+
 .icon {
   display: inline-block;
   width: 40px;
@@ -45,4 +50,28 @@
 .graph {
   width: 1000px;
   height: 100px;
+}
+
+.card-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.title-layout {
+  display: grid;
+}
+
+@include media-breakpoint-up(md) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .title-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .hero {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
