@@ -27,16 +27,82 @@
 @import "~bootstrap/scss/helpers";
 @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "~bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here
 // @import "~bootstrap/scss/bootstrap";
+
 .icon {
+  --diameter: 25px;
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: var(--diameter);
+  height: var(--diameter);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.graph {
+  width: 1000px;
+  height: 100px;
+}
+
+.card-grid,
+.hero,
+.overview-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.title-layout {
+  display: grid;
+}
+
+@include media-breakpoint-up(md) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .title-layout,
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .overview-grid div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .icon {
+    --diameter: 40px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .hero {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .graph {
+    width: 100%;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 366px) {
+  html {
+    font-size: 75%;
+  }
 }
