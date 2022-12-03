@@ -29,6 +29,7 @@
 @import "~bootstrap/scss/navbar";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/buttons";
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "~bootstrap/scss/utilities/api";
@@ -39,4 +40,9 @@
   display: inline-block;
   width: 40px;
   height: 40px;
+}
+
+.graph {
+  width: 1000px;
+  height: 100px;
 }
