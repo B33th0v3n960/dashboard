@@ -210,40 +210,68 @@
       <section class="bg-light p-2 rounded mb-4">
         <div class="overview-grid">
           <h2 class="fs-3">Complete Job Overview</h2>
-          <div>
-            <button
+
+          <form class="d-flex justify-content-end">
+            <input
               type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio1"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio1"
             >
-              Montd
-            </button>
-            <button
+              Today
+            </label>
+
+            <input
               type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio2"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio2"
+            >
+              Week
+            </label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio3"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio3"
             >
               Month
-            </button>
-            <button
+            </label>
+            <input
               type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio4"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio4"
             >
-              Month
-            </button>
-            <button
-              type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
-            >
-              Month
-            </button>
-          </div>
+              Year
+            </label>
+          </form>
         </div>
 
         <div class="overflow-x mt-2 d-flex">
-          <div class="mx-3 legend d-flex flex-column justify-content-between">
+          <div class="me-2 legend d-flex flex-column justify-content-between">
             <p>100</p>
             <p>50</p>
             <p>0</p>

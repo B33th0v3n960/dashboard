@@ -1,27 +1,40 @@
 .chart {
   display: grid;
-  grid-template-columns: repeat(26, 1fr);
+  grid-template-columns: repeat(25, 1fr);
   grid-column-gap: 5px;
   grid-template-rows: repeat(100, 1fr);
   height: 300px;
   width: 70vw;
+
+  border: 2px solid rgba(51, 51, 51, 0.2);
+
   margin-bottom: 20px;
 }
 
 [class*="bar"] {
-  grid-row-start: 50;
-  grid-row-end: 100;
+  grid-row-start: 12;
+  grid-row-end: 101;
   background-color: $primary;
   width: 25%;
   position: relative;
 
+  &::after {
+    border-right: 1px solid #333;
+  }
+
   & p {
     position: absolute;
     bottom: -40px;
+    right: -3px;
   }
 }
 
 .legend {
   position: relative;
   bottom: 10px;
+
+  & p:last-child {
+    position: relative;
+    bottom: -10px;
+  }
 }
