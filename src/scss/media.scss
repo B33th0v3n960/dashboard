@@ -1,0 +1,41 @@
+@include media-breakpoint-up(md) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .title-layout,
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .overview-grid div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .icon {
+    --diameter: 40px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .hero {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .graph {
+    width: 100%;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 366px) {
+  html {
+    font-size: 75%;
+  }
+}

@@ -1,0 +1,51 @@
+.bar-container {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(100, 1fr);
+  height: 300px;
+
+  margin-right: 75%;
+
+  & p {
+    position: absolute;
+    top: 300px;
+    right: 65%; //TODO:Find formula to replace number
+  }
+}
+
+tr td:last-child {
+  width: 5%; //width (in percentage) = bar size in percentage/no. of bars e.g. 25/5
+
+  .bar-container {
+    margin: 0;
+  }
+}
+
+.bar {
+  grid-row-start: 12;
+  grid-row-end: 101;
+  background-color: $primary;
+}
+
+.legend {
+  position: relative;
+  bottom: 10px;
+
+  & p:last-child {
+    position: relative;
+    bottom: -10px;
+  }
+}
+
+.guideline::after {
+  content: "";
+  display: block;
+  width: 90vw; //TODO: Set width equal to table width with js
+  height: 10px;
+  border-bottom: 1px solid rgb(222, 226, 230);
+  position: absolute;
+  top: 148px;
+  left: 35px;
+}

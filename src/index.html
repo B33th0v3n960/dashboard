@@ -9,9 +9,11 @@
     <title>Dashboard</title>
   </head>
   <body class="bg-info">
-    <nav class="navbar navbar-expand-lg bg-dark container-fluid">
+    <nav class="navbar navbar-expand-lg bg-dark w-100">
       <div class="container-fluid">
-        <a class="navbar-brand text-light" href="#">Zoom Courier Software</a>
+        <a class="navbar-brand text-light bg-dark" href="#">
+          Zoom Courier Software
+        </a>
 
         <div class="d-flex align-items-center">
           <img src="./img/person-fill.svg" alt="" />
@@ -20,10 +22,50 @@
       </div>
     </nav>
 
+    <div class="bg-light p-1 d-flex">
+      <div class="nav__link">
+        <svg class="icon">
+          <use xlink:href="./img/sprite.svg#dashboard" />
+        </svg>
+        <p>Dashboard</p>
+      </div>
+
+      <div class="nav__link">
+        <svg class="icon">
+          <use xlink:href="./img/sprite.svg#dashboard" />
+        </svg>
+        <p>Dashboard</p>
+      </div>
+
+      <div class="nav__link">
+        <svg class="icon">
+          <use xlink:href="./img/sprite.svg#dashboard" />
+        </svg>
+        <p>Dashboard</p>
+      </div>
+
+      <div class="nav__link">
+        <svg class="icon">
+          <use xlink:href="./img/sprite.svg#dashboard" />
+        </svg>
+        <p>Dashboard</p>
+      </div>
+
+      <div class="nav__link">
+        <svg class="icon">
+          <use xlink:href="./img/sprite.svg#dashboard" />
+        </svg>
+        <p>Dashboard</p>
+      </div>
+    </div>
+
     <main class="m-3">
       <div class="mb-2 title-layout">
-        <h1>Dashboard</h1>
-        <select class="form-select" aria-label="Default select example">
+        <h1 class="fs-2">Dashboard</h1>
+        <select
+          class="form-select form-select-sm my-2"
+          aria-label="Default select example"
+        >
           <option selected>- All Companies -</option>
           <option value="1">Company A</option>
           <option value="2">Company B</option>
@@ -32,55 +74,113 @@
       </div>
 
       <div class="hero mb-4">
-        <section class="bg-light p-2 rounded">
-          <h2>Completed Jobs</h2>
-          <input
-            type="date"
-            class="form-control"
-            id="date-input"
-            value="2022-12-01"
-          />
+        <section class="bg-light rounded">
+          <div class="row m-3 ms-1">
+            <h2 class="fs-4 col">Completed Jobs</h2>
+            <input
+              type="month"
+              class="form-control col"
+              id="date-input"
+              value="2022-12"
+            />
+          </div>
 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Company ID</th>
-                <th scope="col">Company Name</th>
-                <th scope="col">Completed Jobs</th>
-                <th scope="col">Total SMS</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Company A</td>
-                <td>660</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Company B</td>
-                <td>342</td>
-                <td>54</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Company C</td>
-                <td>34</td>
-                <td>3</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="overflow-y data">
+            <table class="table table-striped m-0">
+              <thead class="fw-semibold">
+                <tr class="table-light">
+                  <td scope="col">Company ID</td>
+                  <td scope="col">Company Name</td>
+                  <td scope="col">Completed Jobs</td>
+                  <td scope="col">Total SMS</td>
+                </tr>
+              </thead>
+              <tbody class="fw-light">
+                <tr>
+                  <td scope="row">1</td>
+                  <td>Company A</td>
+                  <td>660</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td scope="row">2</td>
+                  <td>Company B</td>
+                  <td>342</td>
+                  <td>54</td>
+                </tr>
+                <tr>
+                  <td scope="row">3</td>
+                  <td>Company C</td>
+                  <td>34</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td scope="row">3</td>
+                  <td>Company C</td>
+                  <td>34</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td scope="row">3</td>
+                  <td>Company C</td>
+                  <td>34</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td scope="row">3</td>
+                  <td>Company C</td>
+                  <td>34</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td scope="row">3</td>
+                  <td>Company C</td>
+                  <td>34</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td scope="row">3</td>
+                  <td>Company C</td>
+                  <td>34</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td scope="row">3</td>
+                  <td>Company C</td>
+                  <td>34</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td scope="row">3</td>
+                  <td>Company C</td>
+                  <td>34</td>
+                  <td>3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
-        <section class="row row-cols-2 h-100 g-3">
+        <section class="row row-cols-2 h-100 g-3 text-secondary">
           <div class="col-6">
             <div class="bg-light p-3 rounded">
               <div>
                 <span class="bg-success rounded-circle p-1 icon">
                   <img src="./img/dashboard.svg" alt="" />
                 </span>
-                <h2 class="d-inline align-top">Revenue</h2>
+                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+              </div>
+              <p class="fs-1 text-center">5,124</p>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="bg-light p-3 rounded">
+              <div>
+                <span class="bg-success rounded-circle p-1 icon">
+                  <img src="./img/dashboard.svg" alt="" />
+                </span>
+                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
               </div>
               <p class="fs-1 text-center">$5,124</p>
             </div>
@@ -92,7 +192,7 @@
                 <span class="bg-success rounded-circle p-1 icon">
                   <img src="./img/dashboard.svg" alt="" />
                 </span>
-                <h2 class="d-inline align-top">Revenue</h2>
+                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
               </div>
               <p class="fs-1 text-center">$5,124</p>
             </div>
@@ -104,19 +204,7 @@
                 <span class="bg-success rounded-circle p-1 icon">
                   <img src="./img/dashboard.svg" alt="" />
                 </span>
-                <h2 class="d-inline align-top">Revenue</h2>
-              </div>
-              <p class="fs-1 text-center">$5,124</p>
-            </div>
-          </div>
-
-          <div class="col-6">
-            <div class="bg-light p-3 rounded">
-              <div>
-                <span class="bg-success rounded-circle p-1 icon">
-                  <img src="./img/dashboard.svg" alt="" />
-                </span>
-                <h2 class="d-inline align-top">Revenue</h2>
+                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
               </div>
               <p class="fs-1 text-center">$5,124</p>
             </div>
@@ -124,13 +212,13 @@
         </section>
       </div>
 
-      <section class="mb-4 card-grid">
+      <section class="mb-4 card-grid text-secondary">
         <div class="bg-light p-3 rounded">
           <div>
             <span class="bg-primary rounded-circle p-1 icon">
               <img src="./img/dashboard.svg" alt="" />
             </span>
-            <h2 class="d-inline align-top">Revenue</h2>
+            <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
           </div>
           <p class="fs-1 text-center">$5,124</p>
         </div>
@@ -140,7 +228,7 @@
             <span class="bg-secondary rounded-circle p-1 icon">
               <img src="./img/dashboard.svg" alt="" />
             </span>
-            <h2 class="d-inline align-top">Revenue</h2>
+            <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
           </div>
           <p class="fs-1 text-center">$5,124</p>
         </div>
@@ -150,110 +238,256 @@
             <span class="bg-success rounded-circle p-1 icon">
               <img src="./img/dashboard.svg" alt="" />
             </span>
-            <h2 class="d-inline align-top">Revenue</h2>
+            <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
           </div>
           <p class="fs-1 text-center">$5,124</p>
         </div>
       </section>
 
-      <section class="bg-light p-2 rounded mb-4">
-        <div class="overview-grid">
-          <h2>Complete Job Overview</h2>
-          <div>
-            <button
+      <section class="bg-light rounded mb-4 pt-1">
+        <div class="overview-grid m-2">
+          <h2 class="fs-3">Complete Job Overview</h2>
+
+          <form class="d-flex justify-content-end">
+            <input
               type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio1"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio1"
+            >
+              Today
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio2"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio2"
+            >
+              Week
+            </label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio3"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio3"
             >
               Month
-            </button>
-            <button
+            </label>
+            <input
               type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio4"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio4"
             >
-              Month
-            </button>
-            <button
-              type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
-            >
-              Month
-            </button>
-            <button
-              type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
-            >
-              Month
-            </button>
-          </div>
+              Year
+            </label>
+          </form>
         </div>
 
-        <div class="overflow-scroll mt-2">
-          <div class="graph bg-primary"></div>
+        <div class="overflow-x mt-2 d-flex p-3 border-top">
+          <div class="me-2 legend d-flex flex-column justify-content-between">
+            <p>100</p>
+            <p class="guideline">50</p>
+            <p>0</p>
+          </div>
+
+          <table class="table table-bordered">
+            <tr>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>0.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>1.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>2.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>3.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>4.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>5.00</p>
+                </span>
+              </td>
+            </tr>
+          </table>
         </div>
       </section>
 
-      <section class="bg-light p-2 rounded mb-4">
-        <div class="overview-grid">
-          <h2>Complete Job Overview</h2>
-          <div>
-            <button
+      <section class="bg-light rounded mb-4 pt-1">
+        <div class="overview-grid m-2">
+          <h2 class="fs-3">Complete Job Overview</h2>
+
+          <form class="d-flex justify-content-end">
+            <input
               type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio1"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio1"
+            >
+              Today
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio2"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio2"
+            >
+              Week
+            </label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio3"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio3"
             >
               Month
-            </button>
-            <button
+            </label>
+            <input
               type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio4"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio4"
             >
-              Month
-            </button>
-            <button
-              type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
-            >
-              Month
-            </button>
-            <button
-              type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
-            >
-              Month
-            </button>
-          </div>
+              Year
+            </label>
+          </form>
         </div>
 
-        <div class="overflow-scroll mt-2">
-          <div class="graph bg-primary"></div>
+        <div class="overflow-x mt-2 d-flex p-3 border-top">
+          <div class="me-2 legend d-flex flex-column justify-content-between">
+            <p>100</p>
+            <p class="guideline">50</p>
+            <p>0</p>
+          </div>
+
+          <table class="table table-bordered">
+            <tr>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>0.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>1.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>2.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>3.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>4.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>5.00</p>
+                </span>
+              </td>
+            </tr>
+          </table>
         </div>
       </section>
 
-      <section class="bg-light p-2 rounded mb-4">
-        <h2>Last 30 days Google API Usage Report</h2>
+      <section class="bg-light rounded mb-4 pt-1">
+        <h2 class="m-3 fs-3">Last 30 days Google API Usage Report</h2>
 
-        <div class="overflow-scroll">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Company Name</th>
-                <th scope="col">Map</th>
-                <th scope="col">Direction</th>
-                <th scope="col">Distance Matrix</th>
-                <th scope="col">Georecorder</th>
-                <th scope="col">Place</th>
+        <div class="overflow-y p-0 data">
+          <table class="table table-striped m-0">
+            <thead class="fw-semibold">
+              <tr class="table-light">
+                <td scope="col p-3">Company Name</td>
+                <td scope="col">Map</td>
+                <td scope="col">Direction</td>
+                <td scope="col">Distance Matrix</td>
+                <td scope="col">Georecorder</td>
+                <td scope="col">Place</td>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">Company A</th>
+                <td scope="row">Company A</td>
                 <td>12788</td>
                 <td>50067</td>
                 <td>32364</td>
@@ -261,7 +495,7 @@
                 <td>32364</td>
               </tr>
               <tr>
-                <th scope="row">Company A</th>
+                <td scope="row">Company A</td>
                 <td>12788</td>
                 <td>50067</td>
                 <td>32364</td>
@@ -269,7 +503,7 @@
                 <td>32364</td>
               </tr>
               <tr>
-                <th scope="row">Company A</th>
+                <td scope="row">Company A</td>
                 <td>12788</td>
                 <td>50067</td>
                 <td>32364</td>
@@ -277,7 +511,7 @@
                 <td>32364</td>
               </tr>
               <tr>
-                <th scope="row">Company A</th>
+                <td scope="row">Company A</td>
                 <td>12788</td>
                 <td>50067</td>
                 <td>32364</td>
@@ -285,7 +519,58 @@
                 <td>32364</td>
               </tr>
               <tr>
-                <th scope="row">Company A</th>
+                <td scope="row">Company A</td>
+                <td>12788</td>
+                <td>50067</td>
+                <td>32364</td>
+                <td>32364</td>
+                <td>32364</td>
+              </tr>
+
+              <tr>
+                <td scope="row">Company A</td>
+                <td>12788</td>
+                <td>50067</td>
+                <td>32364</td>
+                <td>32364</td>
+                <td>32364</td>
+              </tr>
+
+              <tr>
+                <td scope="row">Company A</td>
+                <td>12788</td>
+                <td>50067</td>
+                <td>32364</td>
+                <td>32364</td>
+                <td>32364</td>
+              </tr>
+
+              <tr>
+                <td scope="row">Company A</td>
+                <td>12788</td>
+                <td>50067</td>
+                <td>32364</td>
+                <td>32364</td>
+                <td>32364</td>
+              </tr>
+              <tr>
+                <td scope="row">Company A</td>
+                <td>12788</td>
+                <td>50067</td>
+                <td>32364</td>
+                <td>32364</td>
+                <td>32364</td>
+              </tr>
+              <tr>
+                <td scope="row">Company A</td>
+                <td>12788</td>
+                <td>50067</td>
+                <td>32364</td>
+                <td>32364</td>
+                <td>32364</td>
+              </tr>
+              <tr>
+                <td scope="row">Company A</td>
                 <td>12788</td>
                 <td>50067</td>
                 <td>32364</td>
