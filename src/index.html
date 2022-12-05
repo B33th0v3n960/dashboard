@@ -207,8 +207,8 @@
         </div>
       </section>
 
-      <section class="bg-light p-2 rounded mb-4">
-        <div class="overview-grid">
+      <section class="bg-light rounded mb-4 pt-1">
+        <div class="overview-grid m-2">
           <h2 class="fs-3">Complete Job Overview</h2>
 
           <form class="d-flex justify-content-end">
@@ -270,129 +270,166 @@
           </form>
         </div>
 
-        <div class="overflow-x mt-2 d-flex">
+        <div class="overflow-x mt-2 d-flex p-3 border-top">
           <div class="me-2 legend d-flex flex-column justify-content-between">
             <p>100</p>
-            <p>50</p>
+            <p class="guideline">50</p>
             <p>0</p>
           </div>
-          <div class="chart w-100">
-            <div class="bar-1">
-              <p>0:00</p>
-            </div>
-            <div class="bar-2">
-              <p>1:00</p>
-            </div>
-            <div class="bar-3">
-              <p>2:00</p>
-            </div>
-            <div class="bar-4">
-              <p>3:00</p>
-            </div>
-            <div class="bar-5">
-              <p>4:00</p>
-            </div>
-            <div class="bar-6">
-              <p>5:00</p>
-            </div>
-            <div class="bar-7">
-              <p>6:00</p>
-            </div>
-            <div class="bar-8">
-              <p>7:00</p>
-            </div>
-            <div class="bar-9">
-              <p>8:00</p>
-            </div>
-            <div class="bar-10">
-              <p>9:00</p>
-            </div>
-            <div class="bar-11">
-              <p>10:00</p>
-            </div>
-            <div class="bar-12">
-              <p>11:00</p>
-            </div>
-            <div class="bar-13">
-              <p>12:00</p>
-            </div>
-            <div class="bar-14">
-              <p>13:00</p>
-            </div>
-            <div class="bar-15">
-              <p>14:00</p>
-            </div>
-            <div class="bar-16">
-              <p>15:00</p>
-            </div>
-            <div class="bar-17">
-              <p>16:00</p>
-            </div>
-            <div class="bar-18">
-              <p>17:00</p>
-            </div>
-            <div class="bar-19">
-              <p>18:00</p>
-            </div>
-            <div class="bar-20">
-              <p>19:00</p>
-            </div>
-            <div class="bar-21">
-              <p>20:00</p>
-            </div>
-            <div class="bar-22">
-              <p>21:00</p>
-            </div>
-            <div class="bar-23">
-              <p>22:00</p>
-            </div>
-            <div class="bar-24">
-              <p>23:00</p>
-            </div>
-            <div class="bar-25">
-              <p>0:00</p>
-            </div>
-          </div>
+
+          <table class="table table-bordered">
+            <tr>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>0.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>1.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>2.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>3.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>4.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>5.00</p>
+                </span>
+              </td>
+            </tr>
+          </table>
         </div>
       </section>
 
-      <section class="bg-light rounded p-2 mb-4">
-        <div class="overview-grid">
+      <section class="bg-light rounded mb-4 pt-1">
+        <div class="overview-grid m-2">
           <h2 class="fs-3">Complete Job Overview</h2>
-          <div>
-            <button
+
+          <form class="d-flex justify-content-end">
+            <input
               type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio1"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio1"
+            >
+              Today
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio2"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio2"
+            >
+              Week
+            </label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio3"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio3"
             >
               Month
-            </button>
-            <button
+            </label>
+            <input
               type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio4"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
+              for="btnradio4"
             >
-              Month
-            </button>
-            <button
-              type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
-            >
-              Month
-            </button>
-            <button
-              type="radio"
-              name="job-overview-date"
-              class="btn btn-primary rounded-pill"
-            >
-              Month
-            </button>
-          </div>
+              Year
+            </label>
+          </form>
         </div>
 
-        <div class="overflow-scroll mt-2 p-0">
-          <div class="graph bg-primary"></div>
+        <div class="overflow-x mt-2 d-flex p-3 border-top">
+          <div class="me-2 legend d-flex flex-column justify-content-between">
+            <p>100</p>
+            <p class="guideline">50</p>
+            <p>0</p>
+          </div>
+
+          <table class="table table-bordered">
+            <tr>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>0.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>1.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>2.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>3.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>4.00</p>
+                </span>
+              </td>
+              <td class="p-0">
+                <span class="bar-container">
+                  <div class="bar"></div>
+                  <p>5.00</p>
+                </span>
+              </td>
+            </tr>
+          </table>
         </div>
       </section>
 
