@@ -66,5 +66,26 @@
   max-height: 240px;
 }
 
+.overflow-x {
+  overflow-x: scroll;
+}
+
+.overflow-y {
+  overflow-y: scroll;
+}
+
 @import "./media.scss";
 @import "./graph.scss";
+
+/*========== SCROLL BAR ==========*/
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: none;
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(206, 206, 206);
+  border-radius: 0.5rem;
+}
