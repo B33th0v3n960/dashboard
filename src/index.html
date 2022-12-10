@@ -26,49 +26,49 @@
     </nav>
 
     <div class="bg-light p-2 d-flex">
-      <div class="nav__link m-3">
+      <div class="nav__link mx-3 active">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#dashboard" />
         </svg>
         <p>Dashboard</p>
       </div>
 
-      <div class="nav__link m-3">
+      <div class="nav__link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#person" />
         </svg>
         <p>Companies</p>
       </div>
 
-      <div class="nav__link m-3">
+      <div class="nav__link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#truck" />
         </svg>
         <p>Couriers</p>
       </div>
 
-      <div class="nav__link m-3">
+      <div class="nav__link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#customers" />
         </svg>
         <p>Customers</p>
       </div>
 
-      <div class="nav__link m-3">
+      <div class="nav__link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#dashboard" />
         </svg>
         <p>Jobs</p>
       </div>
 
-      <div class="nav__link m-3">
+      <div class="nav__link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#cogs" />
         </svg>
         <p>Configurations</p>
       </div>
 
-      <div class="nav__link m-3">
+      <div class="nav__link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#document" />
         </svg>
@@ -182,7 +182,7 @@
           <div class="col-6">
             <div class="bg-light p-3 rounded">
               <div class="d-flex align-items-center">
-                <span class="bg-success rounded-circle p-2 icon">
+                <span class="custom-bg-blue rounded-circle p-2 icon">
                   <svg class="icon fill-white">
                     <use xlink:href="./img/sprite.svg#dashboard" />
                   </svg>
@@ -214,7 +214,7 @@
           <div class="col-6">
             <div class="bg-light p-3 rounded">
               <div class="d-flex align-items-center">
-                <span class="bg-success rounded-circle p-2 icon">
+                <span class="custom-bg-green rounded-circle p-2 icon">
                   <svg class="icon fill-white">
                     <use xlink:href="./img/sprite.svg#dashboard" />
                   </svg>
@@ -230,7 +230,7 @@
           <div class="col-6">
             <div class="bg-light p-3 rounded">
               <div class="d-flex align-items-center">
-                <span class="bg-success rounded-circle p-2 icon">
+                <span class="custom-bg-red rounded-circle p-2 icon">
                   <svg class="icon fill-white">
                     <use xlink:href="./img/sprite.svg#dashboard" />
                   </svg>
@@ -248,36 +248,40 @@
       <section class="mb-4 card-grid text-secondary">
         <div class="bg-light p-3 rounded">
           <div class="d-flex align-items-center">
-            <span class="bg-success rounded-circle p-2 icon">
+            <span class="custom-bg-green rounded-circle p-2 icon">
               <svg class="icon fill-white">
                 <use xlink:href="./img/sprite.svg#users" />
               </svg>
             </span>
-            <h2 class="d-inline fs-3 fw-normal my-auto ms-3"></h2>
+            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+              Active Customers
+            </h2>
           </div>
           <p class="fs-1 text-center">1,213</p>
         </div>
 
         <div class="bg-light p-3 rounded">
           <div class="d-flex align-items-center">
-            <span class="bg-success rounded-circle p-2 icon">
+            <span class="custom-bg-red rounded-circle p-2 icon">
               <svg class="icon fill-white">
                 <use xlink:href="./img/sprite.svg#users" />
               </svg>
             </span>
-            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">Revenue</h2>
+            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+              Inactive Customers
+            </h2>
           </div>
           <p class="fs-1 text-center">4,123</p>
         </div>
 
         <div class="bg-light p-3 rounded">
           <div class="d-flex align-items-center">
-            <span class="bg-success rounded-circle p-2 icon">
+            <span class="custom-bg-red rounded-circle p-2 icon">
               <svg class="icon fill-white">
                 <use xlink:href="./img/sprite.svg#euro" />
               </svg>
             </span>
-            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">Revenue</h2>
+            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">Today Revenue</h2>
           </div>
           <p class="fs-1 text-center">$5,124.12</p>
         </div>
@@ -292,13 +296,14 @@
               type="radio"
               class="btn-check"
               name="btnradio"
-              id="btnradio1"
+              id="job-overview-today"
               autocomplete="off"
               checked
             />
             <label
-              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio1"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-today"
+              checked
             >
               Today
             </label>
@@ -307,13 +312,12 @@
               type="radio"
               class="btn-check"
               name="btnradio"
-              id="btnradio2"
+              id="job-overview-week"
               autocomplete="off"
-              checked
             />
             <label
-              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio2"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-week"
             >
               Week
             </label>
@@ -321,12 +325,12 @@
               type="radio"
               class="btn-check"
               name="btnradio"
-              id="btnradio3"
+              id="job-overview-month"
               autocomplete="off"
             />
             <label
-              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio3"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-month"
             >
               Month
             </label>
@@ -334,12 +338,12 @@
               type="radio"
               class="btn-check"
               name="btnradio"
-              id="btnradio4"
+              id="job-overview-year"
               autocomplete="off"
             />
             <label
-              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio4"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-year"
             >
               Year
             </label>
@@ -430,13 +434,13 @@
               type="radio"
               class="btn-check"
               name="btnradio"
-              id="btnradio1"
+              id="signup-overview-today"
               autocomplete="off"
               checked
             />
             <label
-              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio1"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="signup-overview-today"
             >
               Today
             </label>
@@ -445,13 +449,12 @@
               type="radio"
               class="btn-check"
               name="btnradio"
-              id="btnradio2"
+              id="signup-overview-week"
               autocomplete="off"
-              checked
             />
             <label
-              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio2"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="signup-overview-week"
             >
               Week
             </label>
@@ -459,27 +462,14 @@
               type="radio"
               class="btn-check"
               name="btnradio"
-              id="btnradio3"
+              id="signup-overview-month"
               autocomplete="off"
             />
             <label
-              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio3"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="signup-overview-month"
             >
               Month
-            </label>
-            <input
-              type="radio"
-              class="btn-check"
-              name="btnradio"
-              id="btnradio4"
-              autocomplete="off"
-            />
-            <label
-              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio4"
-            >
-              Year
             </label>
           </form>
         </div>

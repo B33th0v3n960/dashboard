@@ -78,6 +78,10 @@
 @import "./media.scss";
 @import "./graph.scss";
 
+.black-text-label {
+  color: black;
+}
+
 .btn-check:checked + .btn {
   color: white;
 }
@@ -101,7 +105,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  fill: black;
+  fill: $gray-700;
+  color: $gray-700;
 
   img {
     width: 50%;
@@ -122,6 +127,7 @@
     width: 50px;
     height: 50px;
     margin: 0.5em;
+    margin-bottom: 0;
 
     use {
       fill: inherit;
@@ -129,6 +135,23 @@
   }
 }
 
+.active {
+  color: $success;
+  fill: $success;
+}
+
 .fill-white {
   fill: white;
+}
+
+.custom-bg-blue {
+  background: hsl(187, 56%, 61%);
+}
+
+.custom-bg-green {
+  background: hsl(153, 49%, 52%);
+}
+
+.custom-bg-red {
+  background: hsl(359, 88%, 68%);
 }
