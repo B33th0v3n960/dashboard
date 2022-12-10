@@ -11,12 +11,12 @@
   & p {
     position: absolute;
     top: 300px;
-    right: 65%; //TODO:Find formula to replace number
+    right: var(--move-right, 20%); //TODO:Find formula to replace number
   }
 }
 
 tr td:last-child {
-  width: 5%; //width (in percentage) = bar size in percentage/no. of bars e.g. 25/5
+  width: var(--last-width, 5%);
 
   .bar-container {
     margin: 0;
@@ -35,17 +35,28 @@ tr td:last-child {
 
   & p:last-child {
     position: relative;
-    bottom: -10px;
   }
 }
 
 .guideline::after {
   content: "";
   display: block;
-  width: 90vw; //TODO: Set width equal to table width with js
+  width: var(--width, 1000px);
   height: 10px;
   border-bottom: 1px solid rgb(222, 226, 230);
   position: absolute;
-  top: 148px;
-  left: 35px;
+  top: 20%;
+  left: 32px;
+}
+
+@include media-breakpoint-up(sm) {
+  .guideline::after {
+    left: 35px;
+  }
+}
+
+@media (max-width: 366px) {
+  .guideline::after {
+    left: 28px;
+  }
 }

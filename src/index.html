@@ -8,6 +8,7 @@
     <script src="./js/main.js" type="module" defer></script>
     <title>Dashboard</title>
   </head>
+
   <body class="bg-info">
     <nav class="navbar navbar-expand-lg bg-dark w-100">
       <div class="container-fluid">
@@ -309,50 +310,75 @@
 
         <div class="overflow-x mt-2 d-flex p-3 border-top">
           <div class="me-2 legend d-flex flex-column justify-content-between">
-            <p>100</p>
-            <p class="guideline">50</p>
-            <p>0</p>
+            <p class="m-0">100</p>
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+            <p class="m-0">0</p>
           </div>
 
           <table class="table table-bordered">
-            <tr>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>0.00</p>
-                </span>
-              </td>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>1.00</p>
-                </span>
-              </td>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>2.00</p>
-                </span>
-              </td>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>3.00</p>
-                </span>
-              </td>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>4.00</p>
-                </span>
-              </td>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>5.00</p>
-                </span>
-              </td>
-            </tr>
+            <tbody>
+              <tr id="job-overview-graph" class="graph">
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>0.00</p>
+                  </span>
+                </td>
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>1.00</p>
+                  </span>
+                </td>
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>2.00</p>
+                  </span>
+                </td>
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>3.00</p>
+                  </span>
+                </td>
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>4.00</p>
+                  </span>
+                </td>
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>5.00</p>
+                  </span>
+                </td>
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>5.00</p>
+                  </span>
+                </td>
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>5.00</p>
+                  </span>
+                </td>
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>5.00</p>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </section>
@@ -422,13 +448,24 @@
 
         <div class="overflow-x mt-2 d-flex p-3 border-top">
           <div class="me-2 legend d-flex flex-column justify-content-between">
-            <p>100</p>
-            <p class="guideline">50</p>
-            <p>0</p>
+            <p class="m-0">100</p>
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+            <p class="m-0">0</p>
           </div>
 
           <table class="table table-bordered">
-            <tr>
+            <tr class="graph">
               <td class="p-0">
                 <span class="bar-container">
                   <div class="bar"></div>
