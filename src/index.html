@@ -17,46 +17,62 @@
         </a>
 
         <div class="d-flex align-items-center">
-          <img src="./img/person-fill.svg" alt="" />
+          <svg class="icon fill-white p-2 pe-0">
+            <use xlink:href="./img/sprite.svg#person" />
+          </svg>
           <span class="text-light ms-2">Admin</span>
         </div>
       </div>
     </nav>
 
-    <div class="bg-light p-1 d-flex">
-      <div class="nav__link">
+    <div class="bg-light p-2 d-flex">
+      <div class="nav__link m-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#dashboard" />
         </svg>
         <p>Dashboard</p>
       </div>
 
-      <div class="nav__link">
+      <div class="nav__link m-3">
         <svg class="icon">
-          <use xlink:href="./img/sprite.svg#dashboard" />
+          <use xlink:href="./img/sprite.svg#person" />
         </svg>
-        <p>Dashboard</p>
+        <p>Companies</p>
       </div>
 
-      <div class="nav__link">
+      <div class="nav__link m-3">
         <svg class="icon">
-          <use xlink:href="./img/sprite.svg#dashboard" />
+          <use xlink:href="./img/sprite.svg#truck" />
         </svg>
-        <p>Dashboard</p>
+        <p>Couriers</p>
       </div>
 
-      <div class="nav__link">
+      <div class="nav__link m-3">
         <svg class="icon">
-          <use xlink:href="./img/sprite.svg#dashboard" />
+          <use xlink:href="./img/sprite.svg#customers" />
         </svg>
-        <p>Dashboard</p>
+        <p>Customers</p>
       </div>
 
-      <div class="nav__link">
+      <div class="nav__link m-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#dashboard" />
         </svg>
-        <p>Dashboard</p>
+        <p>Jobs</p>
+      </div>
+
+      <div class="nav__link m-3">
+        <svg class="icon">
+          <use xlink:href="./img/sprite.svg#cogs" />
+        </svg>
+        <p>Configurations</p>
+      </div>
+
+      <div class="nav__link m-3">
+        <svg class="icon">
+          <use xlink:href="./img/sprite.svg#document" />
+        </svg>
+        <p>Company Invoices</p>
       </div>
     </div>
 
@@ -165,49 +181,65 @@
         <section class="row row-cols-2 h-100 g-3 text-secondary">
           <div class="col-6">
             <div class="bg-light p-3 rounded">
-              <div>
-                <span class="bg-success rounded-circle p-1 icon">
-                  <img src="./img/dashboard.svg" alt="" />
+              <div class="d-flex align-items-center">
+                <span class="bg-success rounded-circle p-2 icon">
+                  <svg class="icon fill-white">
+                    <use xlink:href="./img/sprite.svg#dashboard" />
+                  </svg>
                 </span>
-                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+                <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+                  Submitted Jobs
+                </h2>
               </div>
-              <p class="fs-1 text-center">5,124</p>
+              <p class="fs-1 text-center">1,233</p>
             </div>
           </div>
 
           <div class="col-6">
             <div class="bg-light p-3 rounded">
-              <div>
-                <span class="bg-success rounded-circle p-1 icon">
-                  <img src="./img/dashboard.svg" alt="" />
+              <div class="d-flex align-items-center">
+                <span class="bg-success rounded-circle p-2 icon">
+                  <svg class="icon fill-white">
+                    <use xlink:href="./img/sprite.svg#dashboard" />
+                  </svg>
                 </span>
-                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+                <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+                  In progress Jobs
+                </h2>
               </div>
-              <p class="fs-1 text-center">$5,124</p>
+              <p class="fs-1 text-center">1,231</p>
             </div>
           </div>
 
           <div class="col-6">
             <div class="bg-light p-3 rounded">
-              <div>
-                <span class="bg-success rounded-circle p-1 icon">
-                  <img src="./img/dashboard.svg" alt="" />
+              <div class="d-flex align-items-center">
+                <span class="bg-success rounded-circle p-2 icon">
+                  <svg class="icon fill-white">
+                    <use xlink:href="./img/sprite.svg#dashboard" />
+                  </svg>
                 </span>
-                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+                <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+                  Today Completed Jobs
+                </h2>
               </div>
-              <p class="fs-1 text-center">$5,124</p>
+              <p class="fs-1 text-center">276</p>
             </div>
           </div>
 
           <div class="col-6">
             <div class="bg-light p-3 rounded">
-              <div>
-                <span class="bg-success rounded-circle p-1 icon">
-                  <img src="./img/dashboard.svg" alt="" />
+              <div class="d-flex align-items-center">
+                <span class="bg-success rounded-circle p-2 icon">
+                  <svg class="icon fill-white">
+                    <use xlink:href="./img/sprite.svg#dashboard" />
+                  </svg>
                 </span>
-                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+                <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+                  Today Cancelled Jobs
+                </h2>
               </div>
-              <p class="fs-1 text-center">$5,124</p>
+              <p class="fs-1 text-center">3</p>
             </div>
           </div>
         </section>
@@ -215,39 +247,45 @@
 
       <section class="mb-4 card-grid text-secondary">
         <div class="bg-light p-3 rounded">
-          <div>
-            <span class="bg-primary rounded-circle p-1 icon">
-              <img src="./img/dashboard.svg" alt="" />
+          <div class="d-flex align-items-center">
+            <span class="bg-success rounded-circle p-2 icon">
+              <svg class="icon fill-white">
+                <use xlink:href="./img/sprite.svg#users" />
+              </svg>
             </span>
-            <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+            <h2 class="d-inline fs-3 fw-normal my-auto ms-3"></h2>
           </div>
-          <p class="fs-1 text-center">$5,124</p>
+          <p class="fs-1 text-center">1,213</p>
         </div>
 
         <div class="bg-light p-3 rounded">
-          <div>
-            <span class="bg-secondary rounded-circle p-1 icon">
-              <img src="./img/dashboard.svg" alt="" />
+          <div class="d-flex align-items-center">
+            <span class="bg-success rounded-circle p-2 icon">
+              <svg class="icon fill-white">
+                <use xlink:href="./img/sprite.svg#users" />
+              </svg>
             </span>
-            <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">Revenue</h2>
           </div>
-          <p class="fs-1 text-center">$5,124</p>
+          <p class="fs-1 text-center">4,123</p>
         </div>
 
         <div class="bg-light p-3 rounded">
-          <div>
-            <span class="bg-success rounded-circle p-1 icon">
-              <img src="./img/dashboard.svg" alt="" />
+          <div class="d-flex align-items-center">
+            <span class="bg-success rounded-circle p-2 icon">
+              <svg class="icon fill-white">
+                <use xlink:href="./img/sprite.svg#euro" />
+              </svg>
             </span>
-            <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">Revenue</h2>
           </div>
-          <p class="fs-1 text-center">$5,124</p>
+          <p class="fs-1 text-center">$5,124.12</p>
         </div>
       </section>
 
       <section class="bg-light rounded mb-4 pt-1">
         <div class="overview-grid m-2">
-          <h2 class="fs-3">Complete Job Overview</h2>
+          <h2 class="fs-3 text-uppercase">Complete Job Overview</h2>
 
           <form class="d-flex justify-content-end">
             <input
@@ -322,7 +360,7 @@
 
           <table class="table table-bordered">
             <tbody>
-              <tr id="job-overview-graph" class="graph">
+              <tr id="job-overview-graph">
                 <td class="p-0">
                   <span class="bar-container">
                     <div class="bar"></div>
@@ -385,7 +423,7 @@
 
       <section class="bg-light rounded mb-4 pt-1">
         <div class="overview-grid m-2">
-          <h2 class="fs-3">Complete Job Overview</h2>
+          <h2 class="fs-3 text-uppercase">Signup Overview</h2>
 
           <form class="d-flex justify-content-end">
             <input
@@ -465,7 +503,7 @@
           </div>
 
           <table class="table table-bordered">
-            <tr class="graph">
+            <tr id="sign-up-graph">
               <td class="p-0">
                 <span class="bar-container">
                   <div class="bar"></div>
