@@ -8,54 +8,67 @@
     <script src="./js/main.js" type="module" defer></script>
     <title>Dashboard</title>
   </head>
-  <body class="bg-info">
-    <nav class="navbar navbar-expand-lg bg-dark w-100">
-      <div class="container-fluid">
-        <a class="navbar-brand text-light bg-dark" href="#">
-          Zoom Courier Software
-        </a>
 
-        <div class="d-flex align-items-center">
-          <img src="./img/person-fill.svg" alt="" />
-          <span class="text-light ms-2">Admin</span>
-        </div>
+  <body class="bg-info">
+    <nav class="navbar bg-dark px-3">
+      <a class="navbar-brand text-light" href="#"> Zoom Courier Software </a>
+
+      <div class="d-flex align-items-center">
+        <svg class="icon fill-white py-2">
+          <use xlink:href="./img/sprite.svg#person" />
+        </svg>
+        <span class="text-light">Admin</span>
       </div>
     </nav>
 
-    <div class="bg-light p-1 d-flex">
-      <div class="nav__link">
+    <div class="bg-light p-2 d-flex">
+      <div class="nav__link mx-3 active">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#dashboard" />
         </svg>
         <p>Dashboard</p>
       </div>
 
-      <div class="nav__link">
+      <div class="nav__link mx-3">
         <svg class="icon">
-          <use xlink:href="./img/sprite.svg#dashboard" />
+          <use xlink:href="./img/sprite.svg#person" />
         </svg>
-        <p>Dashboard</p>
+        <p>Companies</p>
       </div>
 
-      <div class="nav__link">
+      <div class="nav__link mx-3">
         <svg class="icon">
-          <use xlink:href="./img/sprite.svg#dashboard" />
+          <use xlink:href="./img/sprite.svg#truck" />
         </svg>
-        <p>Dashboard</p>
+        <p>Couriers</p>
       </div>
 
-      <div class="nav__link">
+      <div class="nav__link mx-3">
         <svg class="icon">
-          <use xlink:href="./img/sprite.svg#dashboard" />
+          <use xlink:href="./img/sprite.svg#customers" />
         </svg>
-        <p>Dashboard</p>
+        <p>Customers</p>
       </div>
 
-      <div class="nav__link">
+      <div class="nav__link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#dashboard" />
         </svg>
-        <p>Dashboard</p>
+        <p>Jobs</p>
+      </div>
+
+      <div class="nav__link mx-3">
+        <svg class="icon">
+          <use xlink:href="./img/sprite.svg#cogs" />
+        </svg>
+        <p>Configurations</p>
+      </div>
+
+      <div class="nav__link mx-3">
+        <svg class="icon">
+          <use xlink:href="./img/sprite.svg#document" />
+        </svg>
+        <p>Company Invoices</p>
       </div>
     </div>
 
@@ -64,7 +77,7 @@
         <h1 class="fs-2">Dashboard</h1>
         <select
           class="form-select form-select-sm my-2"
-          aria-label="Default select example"
+          aria-label="Filter for companies"
         >
           <option selected>- All Companies -</option>
           <option value="1">Company A</option>
@@ -73,7 +86,7 @@
         </select>
       </div>
 
-      <div class="hero mb-4">
+      <div class="mb-4 hero">
         <section class="bg-light rounded">
           <div class="row m-3 ms-1">
             <h2 class="fs-4 col">Completed Jobs</h2>
@@ -161,105 +174,131 @@
           </div>
         </section>
 
-        <section class="row row-cols-2 h-100 g-3 text-secondary">
+        <section class="h-100 row row-cols-2 g-3 text-secondary">
           <div class="col-6">
             <div class="bg-light p-3 rounded">
-              <div>
-                <span class="bg-success rounded-circle p-1 icon">
-                  <img src="./img/dashboard.svg" alt="" />
+              <div class="d-flex align-items-center">
+                <span class="custom-bg-blue rounded-circle p-2 icon">
+                  <svg class="icon fill-white">
+                    <use xlink:href="./img/sprite.svg#dashboard" />
+                  </svg>
                 </span>
-                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+                <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+                  Submitted Jobs
+                </h2>
               </div>
-              <p class="fs-1 text-center">5,124</p>
+              <p class="fs-1 text-center">1,233</p>
             </div>
           </div>
 
           <div class="col-6">
             <div class="bg-light p-3 rounded">
-              <div>
-                <span class="bg-success rounded-circle p-1 icon">
-                  <img src="./img/dashboard.svg" alt="" />
+              <div class="d-flex align-items-center">
+                <span class="bg-success rounded-circle p-2 icon">
+                  <svg class="icon fill-white">
+                    <use xlink:href="./img/sprite.svg#dashboard" />
+                  </svg>
                 </span>
-                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+                <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+                  In progress Jobs
+                </h2>
               </div>
-              <p class="fs-1 text-center">$5,124</p>
+              <p class="fs-1 text-center">1,231</p>
             </div>
           </div>
 
           <div class="col-6">
             <div class="bg-light p-3 rounded">
-              <div>
-                <span class="bg-success rounded-circle p-1 icon">
-                  <img src="./img/dashboard.svg" alt="" />
+              <div class="d-flex align-items-center">
+                <span class="custom-bg-green rounded-circle p-2 icon">
+                  <svg class="icon fill-white">
+                    <use xlink:href="./img/sprite.svg#dashboard" />
+                  </svg>
                 </span>
-                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+                <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+                  Today Completed Jobs
+                </h2>
               </div>
-              <p class="fs-1 text-center">$5,124</p>
+              <p class="fs-1 text-center">276</p>
             </div>
           </div>
 
           <div class="col-6">
             <div class="bg-light p-3 rounded">
-              <div>
-                <span class="bg-success rounded-circle p-1 icon">
-                  <img src="./img/dashboard.svg" alt="" />
+              <div class="d-flex align-items-center">
+                <span class="custom-bg-red rounded-circle p-2 icon">
+                  <svg class="icon fill-white">
+                    <use xlink:href="./img/sprite.svg#dashboard" />
+                  </svg>
                 </span>
-                <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+                <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+                  Today Cancelled Jobs
+                </h2>
               </div>
-              <p class="fs-1 text-center">$5,124</p>
+              <p class="fs-1 text-center">3</p>
             </div>
           </div>
         </section>
       </div>
 
-      <section class="mb-4 card-grid text-secondary">
+      <section class="mb-4 text-secondary card-grid">
         <div class="bg-light p-3 rounded">
-          <div>
-            <span class="bg-primary rounded-circle p-1 icon">
-              <img src="./img/dashboard.svg" alt="" />
+          <div class="d-flex align-items-center">
+            <span class="custom-bg-green rounded-circle p-2 icon">
+              <svg class="icon fill-white">
+                <use xlink:href="./img/sprite.svg#users" />
+              </svg>
             </span>
-            <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+              Active Customers
+            </h2>
           </div>
-          <p class="fs-1 text-center">$5,124</p>
+          <p class="fs-1 text-center">1,213</p>
         </div>
 
         <div class="bg-light p-3 rounded">
-          <div>
-            <span class="bg-secondary rounded-circle p-1 icon">
-              <img src="./img/dashboard.svg" alt="" />
+          <div class="d-flex align-items-center">
+            <span class="custom-bg-red rounded-circle p-2 icon">
+              <svg class="icon fill-white">
+                <use xlink:href="./img/sprite.svg#users" />
+              </svg>
             </span>
-            <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
+              Inactive Customers
+            </h2>
           </div>
-          <p class="fs-1 text-center">$5,124</p>
+          <p class="fs-1 text-center">4,123</p>
         </div>
 
         <div class="bg-light p-3 rounded">
-          <div>
-            <span class="bg-success rounded-circle p-1 icon">
-              <img src="./img/dashboard.svg" alt="" />
+          <div class="d-flex align-items-center">
+            <span class="custom-bg-red rounded-circle p-2 icon">
+              <svg class="icon fill-white">
+                <use xlink:href="./img/sprite.svg#euro" />
+              </svg>
             </span>
-            <h2 class="d-inline align-top fs-3 fw-normal">Revenue</h2>
+            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">Today Revenue</h2>
           </div>
-          <p class="fs-1 text-center">$5,124</p>
+          <p class="fs-1 text-center">$5,124.12</p>
         </div>
       </section>
 
-      <section class="bg-light rounded mb-4 pt-1">
-        <div class="overview-grid m-2">
-          <h2 class="fs-3">Complete Job Overview</h2>
+      <section class="bg-light rounded mb-4">
+        <div class="p-3 overview-grid">
+          <h2 class="fs-3 text-uppercase m-0">Complete Job Overview</h2>
 
           <form class="d-flex justify-content-end">
             <input
               type="radio"
               class="btn-check"
-              name="btnradio"
-              id="btnradio1"
-              autocomplete="off"
+              name="job-overview-time"
+              id="job-overview-today"
               checked
             />
             <label
-              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio1"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-today"
+              checked
             >
               Today
             </label>
@@ -267,112 +306,145 @@
             <input
               type="radio"
               class="btn-check"
-              name="btnradio"
-              id="btnradio2"
-              autocomplete="off"
-              checked
+              name="job-overview-time"
+              id="job-overview-week"
             />
             <label
-              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio2"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-week"
             >
               Week
             </label>
+
             <input
               type="radio"
               class="btn-check"
-              name="btnradio"
-              id="btnradio3"
-              autocomplete="off"
+              name="job-overview-time"
+              id="job-overview-month"
             />
             <label
-              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio3"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-month"
             >
               Month
             </label>
+
             <input
               type="radio"
               class="btn-check"
-              name="btnradio"
-              id="btnradio4"
-              autocomplete="off"
+              name="job-overview-time"
+              id="job-overview-year"
             />
             <label
-              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio4"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-year"
             >
               Year
             </label>
           </form>
         </div>
 
-        <div class="overflow-x mt-2 d-flex p-3 border-top">
-          <div class="me-2 legend d-flex flex-column justify-content-between">
-            <p>100</p>
-            <p class="guideline">50</p>
-            <p>0</p>
+        <div class="d-flex overflow-x mt-2 p-3 border-top">
+          <div class="me-2 d-flex flex-column justify-content-between legend">
+            <p class="m-0">100</p>
+
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+
+            <p class="m-0">0</p>
           </div>
 
           <table class="table table-bordered">
-            <tr>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>0.00</p>
-                </span>
-              </td>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>1.00</p>
-                </span>
-              </td>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>2.00</p>
-                </span>
-              </td>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>3.00</p>
-                </span>
-              </td>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>4.00</p>
-                </span>
-              </td>
-              <td class="p-0">
-                <span class="bar-container">
-                  <div class="bar"></div>
-                  <p>5.00</p>
-                </span>
-              </td>
-            </tr>
+            <tbody>
+              <tr id="job-overview-graph">
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>0.00</p>
+                  </span>
+                </td>
+
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>1.00</p>
+                  </span>
+                </td>
+
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>2.00</p>
+                  </span>
+                </td>
+
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>3.00</p>
+                  </span>
+                </td>
+
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>4.00</p>
+                  </span>
+                </td>
+
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>5.00</p>
+                  </span>
+                </td>
+
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>5.00</p>
+                  </span>
+                </td>
+
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>5.00</p>
+                  </span>
+                </td>
+
+                <td class="p-0">
+                  <span class="bar-container">
+                    <div class="bar"></div>
+                    <p>5.00</p>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </section>
 
-      <section class="bg-light rounded mb-4 pt-1">
-        <div class="overview-grid m-2">
-          <h2 class="fs-3">Complete Job Overview</h2>
+      <section class="bg-light rounded mb-4">
+        <div class="p-3 overview-grid">
+          <h2 class="fs-3 text-uppercase">Signup Overview</h2>
 
           <form class="d-flex justify-content-end">
             <input
               type="radio"
               class="btn-check"
-              name="btnradio"
-              id="btnradio1"
-              autocomplete="off"
+              name="signup-overview-time"
+              id="signup-overview-today"
               checked
             />
             <label
-              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio1"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="signup-overview-today"
             >
               Today
             </label>
@@ -380,85 +452,91 @@
             <input
               type="radio"
               class="btn-check"
-              name="btnradio"
-              id="btnradio2"
-              autocomplete="off"
-              checked
+              name="signup-overview-time"
+              id="signup-overview-week"
             />
             <label
-              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio2"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="signup-overview-week"
             >
               Week
             </label>
+
             <input
               type="radio"
               class="btn-check"
-              name="btnradio"
-              id="btnradio3"
-              autocomplete="off"
+              name="signup-overview-time"
+              id="signup-overview-month"
             />
             <label
-              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio3"
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="signup-overview-month"
             >
               Month
-            </label>
-            <input
-              type="radio"
-              class="btn-check"
-              name="btnradio"
-              id="btnradio4"
-              autocomplete="off"
-            />
-            <label
-              class="btn btn-outline-primary rounded-pill border-0 px-3 py-2 mx-3"
-              for="btnradio4"
-            >
-              Year
             </label>
           </form>
         </div>
 
-        <div class="overflow-x mt-2 d-flex p-3 border-top">
+        <div class="d-flex overflow-x mt-2 p-3 border-top">
           <div class="me-2 legend d-flex flex-column justify-content-between">
-            <p>100</p>
-            <p class="guideline">50</p>
-            <p>0</p>
+            <p class="m-0">100</p>
+
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+
+            <span class="position-relative">
+              <p class="guideline m-0">50</p>
+            </span>
+
+            <p class="m-0">0</p>
           </div>
 
           <table class="table table-bordered">
-            <tr>
+            <tr id="sign-up-graph">
               <td class="p-0">
                 <span class="bar-container">
                   <div class="bar"></div>
                   <p>0.00</p>
                 </span>
               </td>
+
               <td class="p-0">
                 <span class="bar-container">
                   <div class="bar"></div>
                   <p>1.00</p>
                 </span>
               </td>
+
               <td class="p-0">
                 <span class="bar-container">
                   <div class="bar"></div>
                   <p>2.00</p>
                 </span>
               </td>
+
               <td class="p-0">
                 <span class="bar-container">
                   <div class="bar"></div>
                   <p>3.00</p>
                 </span>
               </td>
+
               <td class="p-0">
                 <span class="bar-container">
                   <div class="bar"></div>
                   <p>4.00</p>
                 </span>
               </td>
+
               <td class="p-0">
                 <span class="bar-container">
                   <div class="bar"></div>
@@ -494,6 +572,7 @@
                 <td>32364</td>
                 <td>32364</td>
               </tr>
+
               <tr>
                 <td scope="row">Company A</td>
                 <td>12788</td>
@@ -502,6 +581,7 @@
                 <td>32364</td>
                 <td>32364</td>
               </tr>
+
               <tr>
                 <td scope="row">Company A</td>
                 <td>12788</td>
@@ -510,14 +590,7 @@
                 <td>32364</td>
                 <td>32364</td>
               </tr>
-              <tr>
-                <td scope="row">Company A</td>
-                <td>12788</td>
-                <td>50067</td>
-                <td>32364</td>
-                <td>32364</td>
-                <td>32364</td>
-              </tr>
+
               <tr>
                 <td scope="row">Company A</td>
                 <td>12788</td>
@@ -553,6 +626,7 @@
                 <td>32364</td>
                 <td>32364</td>
               </tr>
+
               <tr>
                 <td scope="row">Company A</td>
                 <td>12788</td>
@@ -561,6 +635,7 @@
                 <td>32364</td>
                 <td>32364</td>
               </tr>
+
               <tr>
                 <td scope="row">Company A</td>
                 <td>12788</td>
@@ -569,6 +644,16 @@
                 <td>32364</td>
                 <td>32364</td>
               </tr>
+
+              <tr>
+                <td scope="row">Company A</td>
+                <td>12788</td>
+                <td>50067</td>
+                <td>32364</td>
+                <td>32364</td>
+                <td>32364</td>
+              </tr>
+
               <tr>
                 <td scope="row">Company A</td>
                 <td>12788</td>

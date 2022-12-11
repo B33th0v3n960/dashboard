@@ -1,41 +1,39 @@
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "~bootstrap/scss/functions";
+// bootstrap function
+@import '~bootstrap/scss/functions';
 
-// 2. Include any default variable overrides here
-@import "./abstracts/variables";
+// default variable overrides
+@import './abstracts/variables';
 
-// 3. Include remainder of required Bootstrap stylesheets
-@import "~bootstrap/scss/variables";
+// remainder of required Bootstrap stylesheets
+@import '~bootstrap/scss/variables';
 
-// 4. Include any default map overrides here
+// default map overrides
 
-// 5. Include remainder of required parts
-@import "~bootstrap/scss/maps";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/root";
+// remainder of required parts
+@import '~bootstrap/scss/maps';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
 
-// 6. Optionally include any other parts as needed
-@import "~bootstrap/scss/utilities";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/containers";
-@import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/helpers";
-@import "~bootstrap/scss/dropdown";
-@import "~bootstrap/scss/navbar";
-@import "~bootstrap/scss/nav";
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/buttons";
-@import "~bootstrap/scss/transitions";
+// other desired bootstrap contents
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/containers';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/helpers';
+@import '~bootstrap/scss/dropdown';
+@import '~bootstrap/scss/navbar';
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/tables';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/transitions';
 
-// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "~bootstrap/scss/utilities/api";
+// bootstrap utitlities api
+@import '~bootstrap/scss/utilities/api';
 
-// 8. Add additional custom code here
-// @import "~bootstrap/scss/bootstrap";
-
+// custom code
 .icon {
   --diameter: 25px;
   display: inline-block;
@@ -44,11 +42,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.graph {
-  width: 1000px;
-  height: 400px;
 }
 
 .card-grid,
@@ -80,51 +73,38 @@
   z-index: 1;
 }
 
-@import "./media.scss";
-@import "./graph.scss";
+// custom imports
+@import './scrollbar.scss';
+@import './media.scss';
+@import './graph.scss';
+@import './navbar.scss';
 
-/*========== SCROLL BAR ==========*/
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  background-color: none;
-  border-radius: 0.5rem;
+// classes that change colors
+.black-text-label {
+  color: black;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: rgb(206, 206, 206);
-  border-radius: 0.5rem;
+.btn-check:checked + .btn {
+  color: white;
 }
 
-.nav__link {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.active {
+  color: $success;
+  fill: $success;
+}
 
-  img {
-    width: 50%;
-    height: 50%;
-  }
+.fill-white {
+  fill: white;
+}
 
-  p {
-    margin: 0;
-  }
+$custom-colors: (
+  'blue': hsl(187, 56%, 61%),
+  'green': hsl(153, 49%, 52%),
+  'red': hsl(359, 88%, 68%),
+);
 
-  .icon {
-    width: 50px;
-    height: 50px;
-    margin: 0.5em;
-
-    use {
-      fill: black;
-
-      &:hover {
-        fill: $success;
-        cursor: pointer;
-      }
-    }
+@each $color, $value in $custom-colors {
+  .custom-bg-#{$color} {
+    background-color: $value;
   }
 }
