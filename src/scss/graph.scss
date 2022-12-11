@@ -6,7 +6,7 @@
   grid-template-rows: repeat(100, 1fr);
   height: 300px;
 
-  margin-right: 75%;
+  margin-right: max(75%, 50px);
 
   & p {
     position: absolute;
@@ -17,6 +17,7 @@
 
 tr td:last-child {
   width: var(--last-width, 5%);
+  min-width: 18px;
 
   .bar-container {
     margin: 0;
@@ -27,6 +28,7 @@ tr td:last-child {
   grid-row-start: 12;
   grid-row-end: 101;
   background-color: $primary;
+  min-width: 18px;
 }
 
 .legend {
