@@ -1,36 +1,32 @@
-export function fillTable(element) {
-  const data = [
-    {
-      companyId: '1',
-      companyName: 'company a',
-      completedJobs: '123',
-      'Total SMS': '12',
-    },
+export function fillTable(id, header, data) {
+  const tableJobs = document.querySelector(id);
+  const head = tableHead(header);
+  const body = tableBody(data, header);
 
-    {
-      companyId: '1',
-      companyName: 'company a',
-      completedJobs: '123',
-      'Total SMS': '12',
-    },
+  tableJobs.innerHTML = `<thead class="fw-semibold"> ${head}</thead> ${body} `;
 
-    {
-      companyId: '1',
-      companyName: 'company a',
-      completedJobs: '123',
-      'Total SMS': '12',
-    },
-  ]
+  function tableHead(tableHeader) {
+    let output = ``;
 
-  const header = (companies) => {
-    const output = ``
-
-    for (let key in companies) {
-      output += `<td scope="col">${key}</td>`
+    for (let title in tableHeader) {
+      output += `<td scope="col">${tableHeader[title]}</td>`;
     }
 
-    return `<tr class='table-light'>` + output + `</tr>`
+    return `<tr class='table-light'> ${output} </tr>`;
   }
 
-  header(data)
+  function tableBody(companies, tableHeader) {
+    let output = ``;
+
+    for (let company of companies) {
+      let cache = ``;
+
+      for (let title in tableHeader) {
+        cache += `<td scope="row">${company[title]}</td>`;
+      }
+      output += `<tr> ${cache} </tr>`;
+    }
+
+    return `<tbody> ${output} </tbody>`;
+  }
 }
