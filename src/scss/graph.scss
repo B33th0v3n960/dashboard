@@ -3,7 +3,7 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(100, 1fr);
+  grid-template-rows: repeat(var(--range, 100), 1fr);
   height: 300px;
 
   margin-right: max(75%, 50px);
@@ -25,15 +25,20 @@ tr td:last-child {
 }
 
 .bar {
-  grid-row-start: 12;
-  grid-row-end: 101;
+  grid-row-start: var(--percentage, 12);
+  grid-row-end: var(--end, 101);
   background-color: $primary;
   min-width: 18px;
+  // display: none;
 }
 
 .legend {
   position: relative;
   bottom: 10px;
+
+  p {
+    min-width: 26px;
+  }
 
   & p:last-child {
     position: relative;

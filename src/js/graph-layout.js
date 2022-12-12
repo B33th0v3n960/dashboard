@@ -1,17 +1,19 @@
 export function layout() {
   const jobGraph = document.querySelector("#job-overview-graph");
   const signUpGraph = document.querySelector("#sign-up-graph");
+  const jobGraphTr = document.querySelector("#job-overview-graph-tr");
+  const signupGraphTr = document.querySelector("#sign-up-graph-tr");
   const bar = document.querySelectorAll(".bar-container");
 
   // set the length of the last td element in bar chart
   jobGraph.style.setProperty(
     "--last-width",
-    `${25 / jobGraph.childElementCount}%`
+    `${25 / jobGraphTr.childElementCount}%`
   );
 
   signUpGraph.style.setProperty(
     "--last-width",
-    `${25 / signUpGraph.childElementCount}%`
+    `${25 / signupGraphTr.childElementCount}%`
   );
 
   // set horizontal guideline size to be equal to graph length
