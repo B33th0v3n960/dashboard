@@ -28,7 +28,6 @@ export function layout() {
 
   function jobGuidelineSize() {
     const guideLine = document.querySelector('#job-overview-graph').children
-    console.log(guideLine)
 
     for (let element of guideLine) {
       element.style.setProperty('--width', `${jobGraph.offsetWidth - 1}px`)

@@ -6,9 +6,24 @@ import { fillGraph } from './graph.js'
 import { layout } from './graph-layout.js'
 import { filterTable } from './table-filter.js'
 import { graphBtn } from './graph-btn.js'
+import { changeTableDate } from './job-date.js'
 
-fillTable('#job-table', '#job-thead', '#job-tbody', job.header, job.data)
+const now = new Date()
+const month = `${now.getFullYear()}-${now.getMonth() + 1}`
+console.log(month)
+const monthJobData = job[month]
+
+fillTable(
+  '#job-table',
+  '#job-thead',
+  '#job-tbody',
+  monthJobData.header,
+  monthJobData.data
+)
 fillTable('#api-table', '#api-thead', '#api-tbody', api.header, api.data)
+
+filterTable('#job-table', '#job-tbody', monthJobData.header, monthJobData.data)
+filterTable('#api-table', '#api-tbody', api.header, api.data)
 
 fillGraph(
   '#job-overview-graph',
@@ -16,6 +31,7 @@ fillGraph(
   'job-overview-graph-tr',
   jobGraphData.today
 )
+
 fillGraph(
   '#sign-up-graph',
   '#signup-legend',
@@ -24,8 +40,6 @@ fillGraph(
 )
 
 layout()
-filterTable('#job-table', '#job-tbody', job.header, job.data)
-filterTable('#api-table', '#api-tbody', api.header, api.data)
 
 graphBtn(
   '#job-overview-radio',
@@ -41,3 +55,5 @@ graphBtn(
   'sign-up-graph-tr',
   signupGraphData
 )
+
+changeTableDate('#date-input')
