@@ -26,7 +26,6 @@ export function layout() {
   positionBarLegend()
   window.addEventListener('resize', positionBarLegend)
 
-  //TODO: Update the id
   function jobGuidelineSize() {
     const guideLine = document.querySelector('#job-overview-graph').children
     console.log(guideLine)
@@ -50,4 +49,3 @@ export function layout() {
     })
   }
 }
-//TODO:refactor redundant code

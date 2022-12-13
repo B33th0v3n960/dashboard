@@ -8,7 +8,7 @@ import {
   apiData,
   jobGraphData,
   signupGraphData,
-} from './data.js'
+} from './data.js' //TODO: group data into related object to shorten code
 import { fillTable } from './table.js'
 import { fillGraph } from './graph.js'
 
