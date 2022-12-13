@@ -114,3 +114,12 @@ $custom-colors: (
 .text-nowrap {
   white-space: nowrap;
 }
+
+.table-head:hover {
+  cursor: pointer;
+
+  &::after {
+    content: ' ^';
+    content-visibility: visible;
+  }
+}

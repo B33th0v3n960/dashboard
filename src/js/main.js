@@ -1,12 +1,13 @@
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
-import { layout } from './graph-layout.js'
 import { job, api, jobGraphData, signupGraphData } from './data.js'
 import { fillTable } from './table.js'
 import { fillGraph } from './graph.js'
+import { layout } from './graph-layout.js'
+import { filterTable } from './table-filter.js'
 
-fillTable('#job-table', job.header, job.data)
-fillTable('#api-table', api.header, api.data)
+fillTable('#job-table', '#job-thead', '#job-tbody', job.header, job.data)
+fillTable('#api-table', '#api-thead', '#api-tbody', api.header, api.data)
 
 fillGraph(
   '#job-overview-graph',
@@ -22,3 +23,5 @@ fillGraph(
 )
 
 layout()
+filterTable('#job-table', '#job-tbody', job.header, job.data)
+filterTable('#api-table', '#api-tbody', api.header, api.data)
