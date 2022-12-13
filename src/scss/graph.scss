@@ -12,7 +12,6 @@
     position: absolute;
     top: 300px;
     white-space: nowrap;
-    text-align: left;
   }
 }
 
@@ -42,6 +41,10 @@
   & p:last-child {
     position: relative;
   }
+}
+
+.last-legend {
+  left: -10px;
 }
 
 .guideline {

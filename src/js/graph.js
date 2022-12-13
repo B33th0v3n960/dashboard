@@ -74,7 +74,7 @@ export function fillGraph(graphId, legendId, trId, data) {
                             legendArr[legendArr.length - 1] - data[i].value
                           }" >
                       </div>
-                      <p class="text-end w-100 overflow-visible" >${
+                      <p class="text-end w-100 overflow-visible last-legend" >${
                         data[i].time
                       }</p>
                     </span>
