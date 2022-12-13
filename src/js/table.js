@@ -1,3 +1,5 @@
+import { filterTable } from './table-filter.js'
+
 export function fillTable(id, theadId, tbodyId, header, data) {
   const tableJobs = document.querySelector(id)
   const thead = document.querySelector(theadId)
@@ -7,6 +9,8 @@ export function fillTable(id, theadId, tbodyId, header, data) {
 
   thead.innerHTML = head
   tbody.innerHTML = body
+
+  filterTable(id, tbodyId, header, data)
   function tableHead(tableHeader) {
     let output = ``
     console.log(tableHeader)

@@ -4,7 +4,6 @@ import { job, api, jobGraphData, signupGraphData } from './data.js'
 import { fillTable } from './table.js'
 import { fillGraph } from './graph.js'
 import { layout } from './graph-layout.js'
-import { filterTable } from './table-filter.js'
 import { graphBtn } from './graph-btn.js'
 import { changeTableDate } from './job-date.js'
 
@@ -21,9 +20,6 @@ fillTable(
   monthJobData.data
 )
 fillTable('#api-table', '#api-thead', '#api-tbody', api.header, api.data)
-
-filterTable('#job-table', '#job-tbody', monthJobData.header, monthJobData.data)
-filterTable('#api-table', '#api-tbody', api.header, api.data)
 
 fillGraph(
   '#job-overview-graph',
