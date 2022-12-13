@@ -45,15 +45,12 @@ tr td:last-child {
   }
 }
 
-.guideline::after {
-  content: "";
+.guideline {
   display: block;
   width: var(--width, 1000px);
-  height: 10px;
+  height: 0;
   border-bottom: 1px solid rgb(222, 226, 230);
-  position: absolute;
-  top: 20%;
-  left: 32px;
+  grid-row-start: var(--start);
 }
 
 @include media-breakpoint-up(sm) {
