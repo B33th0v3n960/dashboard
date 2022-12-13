@@ -22,12 +22,7 @@ export function fillGraph(graphId, legendId, trId, data) {
 
     // create legends
     for (let i = legendArr.length; i > 0; i -= 1) {
-      let addon = `
-                    <p class="m-0 text-end">${legendArr[i - 1]}</p>
-                  `
-      if (i === legendArr.length || i === 1)
-        addon = `<p class="m-0 text-end">${legendArr[i - 1]}</p>`
-      output += addon
+      output += `<p class="m-0 text-end">${legendArr[i - 1]}</p>`
     }
 
     return output
@@ -52,18 +47,39 @@ export function fillGraph(graphId, legendId, trId, data) {
 
     // create a bar for every item data list
     for (let i = 0; i < data.length; i++) {
-      output += ` <td class="p-0">
-                    <span class="bar-container" 
+      let addon = ` <td class="p-0">
+                        <span class="bar-container" 
+                              style="--range: ${
+                                legendArr[legendArr.length - 1]
+                              };
+                                    --end:${
+                                      legendArr[legendArr.length - 1] + 1
+                                    }">
+                          <div class="bar" 
+                              style="--percentage: ${
+                                legendArr[legendArr.length - 1] - data[i].value
+                              }" >
+                          </div>
+                          <p>${data[i].time}</p>
+                        </span>
+                      </td>`
+
+      if (i === data.length - 1)
+        addon = ` <td class="p-0">
+                    <span class="bar-container"
                           style="--range: ${legendArr[legendArr.length - 1]};
                                 --end:${legendArr[legendArr.length - 1] + 1}">
-                      <div class="bar" 
-                           style="--percentage: ${
-                             legendArr[legendArr.length - 1] - data[i].value
-                           }" >
+                      <div class="bar"
+                          style="--percentage: ${
+                            legendArr[legendArr.length - 1] - data[i].value
+                          }" >
                       </div>
-                      <p>${data[i].time}</p>
+                      <p class="text-end w-100 overflow-visible" >${
+                        data[i].time
+                      }</p>
                     </span>
                   </td>`
+      output += addon
     }
     return `<tbody> <tr id="${trId}"> ${output} </tr> </tbody>`
   }
