@@ -3,7 +3,7 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(100, 1fr);
+  grid-template-rows: repeat(var(--range, 100), 1fr);
   height: 300px;
 
   margin-right: max(75%, 50px);
@@ -25,8 +25,8 @@ tr td:last-child {
 }
 
 .bar {
-  grid-row-start: 12;
-  grid-row-end: 101;
+  grid-row-start: var(--percentage, 12);
+  grid-row-end: var(--end, 101);
   background-color: $primary;
   min-width: 18px;
 }
@@ -35,20 +35,21 @@ tr td:last-child {
   position: relative;
   bottom: 10px;
 
+  p {
+    min-width: 26px;
+  }
+
   & p:last-child {
     position: relative;
   }
 }
 
-.guideline::after {
-  content: "";
+.guideline {
   display: block;
-  width: var(--width, 1000px);
-  height: 10px;
+  height: 0;
   border-bottom: 1px solid rgb(222, 226, 230);
-  position: absolute;
-  top: 20%;
-  left: 32px;
+  width: var(--width, 1000px);
+  grid-row-start: var(--start);
 }
 
 @include media-breakpoint-up(sm) {
