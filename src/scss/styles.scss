@@ -56,6 +56,11 @@
   max-height: 240px;
 }
 
+.table-head:hover {
+  cursor: pointer;
+  background: lighten($info, 3);
+}
+
 .overflow-x {
   overflow-x: scroll;
 }
@@ -113,13 +118,4 @@ $custom-colors: (
 
 .text-nowrap {
   white-space: nowrap;
-}
-
-.table-head:hover {
-  cursor: pointer;
-
-  &::after {
-    content: ' ^';
-    content-visibility: visible;
-  }
 }
