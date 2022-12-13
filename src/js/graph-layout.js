@@ -45,7 +45,7 @@ export function layout() {
 
   function positionBarLegend() {
     bar.forEach((element) => {
-      element.style.setProperty('--move-right', `${element.offsetWidth}%`)
+      element.style.setProperty('--move-right', `${element.offsetWidth / 2}%`)
     })
   }
 }

@@ -9,7 +9,7 @@ export function fillTable(id, header, data) {
     let output = ``
 
     for (let title in tableHeader) {
-      output += `<td scope="col">${tableHeader[title]}</td>`
+      output += `<td scope="col" id="${title}" >${tableHeader[title]}</td>`
     }
 
     return `<tr class='table-light'> ${output} </tr>`

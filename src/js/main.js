@@ -1,31 +1,24 @@
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 import { layout } from './graph-layout.js'
-import {
-  jobHeader,
-  jobData,
-  apiHeader,
-  apiData,
-  jobGraphData,
-  signupGraphData,
-} from './data.js' //TODO: group data into related object to shorten code
+import { job, api, jobGraphData, signupGraphData } from './data.js'
 import { fillTable } from './table.js'
 import { fillGraph } from './graph.js'
 
-fillTable('#job-table', jobHeader, jobData)
-fillTable('#api-table', apiHeader, apiData)
+fillTable('#job-table', job.header, job.data)
+fillTable('#api-table', api.header, api.data)
 
 fillGraph(
   '#job-overview-graph',
   '#job-legend',
   'job-overview-graph-tr',
-  jobGraphData
+  jobGraphData.year
 )
 fillGraph(
   '#sign-up-graph',
   '#signup-legend',
   'sign-up-graph-tr',
-  signupGraphData
+  signupGraphData.today
 )
 
 layout()
