@@ -6,16 +6,21 @@
   grid-template-rows: repeat(var(--range, 100), 1fr);
   height: 300px;
 
-  margin-right: max(75%, 50px);
+  margin-right: max(50%, 80px);
 
   & p {
     position: absolute;
     top: 300px;
-    right: var(--move-right, 20%);
+    white-space: nowrap;
   }
 }
 
-tr td:last-child {
+#job-overview-graph,
+#sign-up-graph {
+  height: 300px;
+}
+
+.graph tr td:last-child {
   width: var(--last-width, 5%);
   min-width: 18px;
 
@@ -23,7 +28,6 @@ tr td:last-child {
     margin: 0;
   }
 }
-
 .bar {
   grid-row-start: var(--percentage, 12);
   grid-row-end: var(--end, 101);
@@ -44,6 +48,10 @@ tr td:last-child {
   }
 }
 
+.last-legend {
+  left: -10px;
+}
+
 .guideline {
   display: block;
   height: 0;
@@ -57,6 +65,12 @@ tr td:last-child {
     left: 35px;
   }
 }
+
+// @media (max-width: 1550px) {
+//   .graph tr td:last-child p {
+//     left: -30px;
+//   }
+// }
 
 @media (max-width: 366px) {
   .guideline::after {

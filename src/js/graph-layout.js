@@ -6,15 +6,17 @@ export function layout() {
   const bar = document.querySelectorAll('.bar-container')
 
   // set the length of the last td element in bar chart
-  jobGraph.style.setProperty(
-    '--last-width',
-    `${25 / jobGraphTr.childElementCount}%`
-  )
+  if (jobGraphTr)
+    jobGraph.style.setProperty(
+      '--last-width',
+      `${25 / jobGraphTr.childElementCount}%`
+    )
 
-  signUpGraph.style.setProperty(
-    '--last-width',
-    `${25 / signupGraphTr.childElementCount}%`
-  )
+  if (signupGraphTr)
+    signUpGraph.style.setProperty(
+      '--last-width',
+      `${25 / signupGraphTr.childElementCount}%`
+    )
 
   // set horizontal guideline size to be equal to graph length
   jobGuidelineSize()
@@ -28,7 +30,6 @@ export function layout() {
 
   function jobGuidelineSize() {
     const guideLine = document.querySelector('#job-overview-graph').children
-    console.log(guideLine)
 
     for (let element of guideLine) {
       element.style.setProperty('--width', `${jobGraph.offsetWidth - 1}px`)
@@ -45,7 +46,7 @@ export function layout() {
 
   function positionBarLegend() {
     bar.forEach((element) => {
-      element.style.setProperty('--move-right', `${element.offsetWidth}%`)
+      element.style.setProperty('--move-right', `${element.offsetWidth / 2}%`)
     })
   }
 }

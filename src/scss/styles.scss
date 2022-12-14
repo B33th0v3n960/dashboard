@@ -24,6 +24,8 @@
 @import '~bootstrap/scss/forms';
 @import '~bootstrap/scss/tables';
 @import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/alert';
+@import '~bootstrap/scss/close';
 
 // @import '~bootstrap/scss/transitions';
 
@@ -54,6 +56,11 @@
 
 .data {
   max-height: 240px;
+}
+
+.table-head:hover {
+  cursor: pointer;
+  background: lighten($info, 3);
 }
 
 .overflow-x {
@@ -109,4 +116,12 @@ $custom-colors: (
 .w-0 {
   width: 0 !important;
   overflow: visible;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.full-screen {
+  width: 100vw;
 }

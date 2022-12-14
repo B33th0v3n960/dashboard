@@ -1,185 +1,309 @@
-export const jobHeader = {
-  companyId: 'Company ID',
-  companyName: 'Company Name',
-  completedJobs: 'Completed Jobs',
-  totalSMS: 'Total SMS',
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1) + min) // The maximum is inclusive and the minimum is inclusive
 }
 
-export const jobData = [
-  {
-    companyId: '1',
-    companyName: 'company a',
-    completedJobs: '123',
-    totalSMS: '12',
-  },
-
-  {
-    companyId: '2',
-    companyName: 'company b',
-    completedJobs: '123',
-    totalSMS: '12',
-  },
-
-  {
-    companyId: '3',
-    companyName: 'company c',
-    completedJobs: '123',
-    totalSMS: '12',
-  },
-  {
-    companyId: '4',
-    companyName: 'company d',
-    completedJobs: '123',
-    totalSMS: '12',
-  },
-  {
-    companyId: '5',
-    companyName: 'company e',
-    completedJobs: '123',
-    totalSMS: '12',
-  },
-  {
-    companyId: '6',
-    companyName: 'company f',
-    completedJobs: '123',
-    totalSMS: '12',
-  },
-  {
-    companyId: '7',
-    companyName: 'company g',
-    completedJobs: '123',
-    totalSMS: '12',
-  },
-]
-
-export const apiHeader = {
-  companyName: 'Company Name',
-  map: 'Map',
-  direction: 'Direction',
-  distanceMatrix: 'Distance Matrix',
-  georecorder: 'Georecorder',
-  place: 'Place',
+function randomLetter() {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  return alphabet.charAt(Math.floor(Math.random() * alphabet.length))
 }
 
-export const apiData = [
-  {
-    companyName: 'company a',
-    map: 124,
-    direction: 1231,
-    distanceMatrix: 123,
-    georecorder: 121,
-    place: 121,
-  },
-  {
-    companyName: 'company a',
-    map: 124,
-    direction: 1231,
-    distanceMatrix: 123,
-    georecorder: 121,
-    place: 121,
-  },
-  {
-    companyName: 'company a',
-    map: 124,
-    direction: 1231,
-    distanceMatrix: 123,
-    georecorder: 121,
-    place: 121,
-  },
-  {
-    companyName: 'company a',
-    map: 124,
-    direction: 1231,
-    distanceMatrix: 123,
-    georecorder: 121,
-    place: 121,
-  },
-  {
-    companyName: 'company a',
-    map: 124,
-    direction: 1231,
-    distanceMatrix: 123,
-    georecorder: 121,
-    place: 121,
-  },
-  {
-    companyName: 'company a',
-    map: 124,
-    direction: 1231,
-    distanceMatrix: 123,
-    georecorder: 121,
-    place: 121,
-  },
-  {
-    companyName: 'company a',
-    map: 124,
-    direction: 1231,
-    distanceMatrix: 123,
-    georecorder: 121,
-    place: 121,
-  },
-  {
-    companyName: 'company a',
-    map: 124,
-    direction: 1231,
-    distanceMatrix: 123,
-    georecorder: 121,
-    place: 121,
-  },
+function generateJobData(num) {
+  const output = []
+  for (let i = 0; i < num; i++)
+    output.push({
+      companyId: getRandomIntInclusive(20, 500),
+      companyName: `company ${randomLetter()}`,
+      completedJobs: getRandomIntInclusive(20, 500),
+      totalSMS: getRandomIntInclusive(20, 500),
+    })
+  return output
+}
+
+function generateApiData(num) {
+  const output = []
+  for (let i = 0; i < num; i++)
+    output.push({
+      companyName: `company ${randomLetter()}`,
+      map: getRandomIntInclusive(0, 100),
+      direction: getRandomIntInclusive(50, 1000),
+      distanceMatrix: getRandomIntInclusive(50, 1000),
+      georecorder: getRandomIntInclusive(20, 400),
+      place: getRandomIntInclusive(10, 500),
+    })
+  return output
+}
+
+function generateGraphData(arr, min, max) {
+  const output = []
+  for (let i of arr) {
+    output.push({ time: i, value: getRandomIntInclusive(min, max) })
+  }
+  return output
+}
+
+const day = [
+  '0.00',
+  '1.00',
+  '2.00',
+  '3.00',
+  '4.00',
+  '5.00',
+  '6.00',
+  '7.00',
+  '8.00',
+  '9.00',
+  '10.00',
+  '11.00',
+  '12.00',
+  '13.00',
+  '14.00',
+  '15.00',
+  '16.00',
+  '17.00',
+  '18.00',
+  '19.00',
+  '20.00',
+  '21.00',
+  '22.00',
+  '23.00',
+  '0.00',
+]
+const week = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+]
+const month = ['week 1', 'week 2', 'week 3', 'week 4']
+const year = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ]
 
-export const jobGraphData = [
-  { time: '0.00', value: 12 },
-  { time: '1.00', value: 32 },
-  { time: '2.00', value: 62 },
-  { time: '3.00', value: 14 },
-  { time: '4.00', value: 23 },
-  { time: '5.00', value: 95 },
-  { time: '6.00', value: 45 },
-  { time: '7.00', value: 76 },
-  { time: '8.00', value: 12 },
-  { time: '9.00', value: 12 },
-  { time: '10.00', value: 12 },
-  { time: '11.00', value: 12 },
-  { time: '12.00', value: 35 },
-  { time: '13.00', value: 12 },
-  { time: '14.00', value: 12 },
-  { time: '15.00', value: 34 },
-  { time: '16.00', value: 12 },
-  { time: '17.00', value: 65 },
-  { time: '18.00', value: 12 },
-  { time: '19.00', value: 23 },
-  { time: '20.00', value: 12 },
-  { time: '21.00', value: 76 },
-  { time: '22.00', value: 12 },
-  { time: '23.00', value: 12 },
-  { time: '0.00', value: 12 },
-]
+export const data = {
+  companyA: {
+    job: {
+      '2022-12': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(41)],
+      },
+      '2022-11': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(45)],
+      },
+      '2022-10': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(38)],
+      },
+      '2022-09': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(23)],
+      },
+    },
+    api: {
+      header: {
+        companyName: 'Company Name',
+        map: 'Map',
+        direction: 'Direction',
+        distanceMatrix: 'Distance Matrix',
+        georecorder: 'Georecorder',
+        place: 'Place',
+      },
 
-export const signupGraphData = [
-  { time: '0.00', value: 0 },
-  { time: '1.00', value: 1 },
-  { time: '2.00', value: 2 },
-  { time: '3.00', value: 3 },
-  { time: '4.00', value: 4 },
-  { time: '5.00', value: 5 },
-  { time: '6.00', value: 6 },
-  { time: '7.00', value: 7 },
-  { time: '8.00', value: 8 },
-  { time: '9.00', value: 9 },
-  { time: '10.00', value: 1 },
-  { time: '11.00', value: 1 },
-  { time: '12.00', value: 3 },
-  { time: '13.00', value: 1 },
-  { time: '14.00', value: 2 },
-  { time: '15.00', value: 3 },
-  { time: '16.00', value: 2 },
-  { time: '17.00', value: 6 },
-  { time: '18.00', value: 1 },
-  { time: '19.00', value: 2 },
-  { time: '20.00', value: 1 },
-  { time: '21.00', value: 7 },
-  { time: '22.00', value: 1 },
-  { time: '23.00', value: 2 },
-  { time: '0.00', value: 2 },
-]
+      data: [...generateApiData(21)],
+    },
+    jobGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+      year: [...generateGraphData(year, 0, 50)],
+    },
+    signupGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    submittedJobs: getRandomIntInclusive(700, 1500),
+    inProgressJobs: getRandomIntInclusive(700, 1500),
+    completedJobs: getRandomIntInclusive(700, 1500),
+    cancelledJobs: getRandomIntInclusive(0, 50),
+    activeCustomers: getRandomIntInclusive(700, 1500),
+    inActiveCustomers: getRandomIntInclusive(700, 1500),
+    revenue: getRandomIntInclusive(90000, 200000) / 100,
+  },
+  companyB: {
+    job: {
+      '2022-12': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(41)],
+      },
+      '2022-11': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(45)],
+      },
+      '2022-10': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(38)],
+      },
+      '2022-09': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(23)],
+      },
+    },
+    api: {
+      header: {
+        companyName: 'Company Name',
+        map: 'Map',
+        direction: 'Direction',
+        distanceMatrix: 'Distance Matrix',
+        georecorder: 'Georecorder',
+        place: 'Place',
+      },
+
+      data: [...generateApiData(21)],
+    },
+    jobGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+      year: [...generateGraphData(year, 0, 50)],
+    },
+    signupGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    submittedJobs: getRandomIntInclusive(700, 1500),
+    inProgressJobs: getRandomIntInclusive(700, 1500),
+    completedJobs: getRandomIntInclusive(700, 1500),
+    cancelledJobs: getRandomIntInclusive(0, 50),
+    activeCustomers: getRandomIntInclusive(700, 1500),
+    inActiveCustomers: getRandomIntInclusive(700, 1500),
+    revenue: getRandomIntInclusive(90000, 200000) / 100,
+  },
+  companyC: {
+    job: {
+      '2022-12': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(41)],
+      },
+      '2022-11': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(45)],
+      },
+      '2022-10': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(38)],
+      },
+      '2022-09': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(23)],
+      },
+    },
+    api: {
+      header: {
+        companyName: 'Company Name',
+        map: 'Map',
+        direction: 'Direction',
+        distanceMatrix: 'Distance Matrix',
+        georecorder: 'Georecorder',
+        place: 'Place',
+      },
+
+      data: [...generateApiData(21)],
+    },
+    jobGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+      year: [...generateGraphData(year, 0, 50)],
+    },
+    signupGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    submittedJobs: getRandomIntInclusive(700, 1500),
+    inProgressJobs: getRandomIntInclusive(700, 1500),
+    completedJobs: getRandomIntInclusive(700, 1500),
+    cancelledJobs: getRandomIntInclusive(0, 50),
+    activeCustomers: getRandomIntInclusive(700, 1500),
+    inActiveCustomers: getRandomIntInclusive(700, 1500),
+    revenue: getRandomIntInclusive(90000, 200000) / 100,
+  },
+}

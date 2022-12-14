@@ -1,3 +1,5 @@
+import { layout } from './graph-layout.js'
+
 export function fillGraph(graphId, legendId, trId, data) {
   const graph = document.querySelector(graphId)
   const legend = document.querySelector(legendId)
@@ -6,28 +8,24 @@ export function fillGraph(graphId, legendId, trId, data) {
 
   legend.innerHTML = createLegends()
   graph.innerHTML = createBars()
+  layout()
 
   function createLegends() {
     let output = ``
 
     //find the max value from the data
     const maxVal = getMax(data)
-    console.log(maxVal)
 
     // find suitable steps of incrementation
-    if (maxVal < 10) step = 1
+    if (maxVal <= 10) step = 1
+    else if (maxVal < 30) step = 5
     else if (maxVal <= 50) step = 10
     else step = 50
     for (let i = 0; i < maxVal + step; i += step) legendArr.push(i)
 
     // create legends
     for (let i = legendArr.length; i > 0; i -= 1) {
-      let addon = `
-                    <p class="m-0 text-end">${legendArr[i - 1]}</p>
-                  `
-      if (i === legendArr.length || i === 1)
-        addon = `<p class="m-0 text-end">${legendArr[i - 1]}</p>`
-      output += addon
+      output += `<p class="m-0 text-end">${legendArr[i - 1]}</p>`
     }
 
     return output
@@ -37,9 +35,9 @@ export function fillGraph(graphId, legendId, trId, data) {
     let output = ``
 
     //create guidline
-    for (let i = 0; i < legendArr.length - 1; i += step) {
+    for (let i = 1; i < legendArr.length - 1; i++) {
       output += `<div class="guideline" 
-                      style="--start: ${i + step + 1}" >
+                      style="--start: ${i * step + 1}" >
                  </div>`
     }
     output = `<th class="p-0 w-0">
@@ -52,18 +50,39 @@ export function fillGraph(graphId, legendId, trId, data) {
 
     // create a bar for every item data list
     for (let i = 0; i < data.length; i++) {
-      output += ` <td class="p-0">
-                    <span class="bar-container" 
+      let addon = ` <td class="p-0">
+                        <span class="bar-container" 
+                              style="--range: ${
+                                legendArr[legendArr.length - 1]
+                              };
+                                    --end:${
+                                      legendArr[legendArr.length - 1] + 1
+                                    }">
+                          <div class="bar" 
+                              style="--percentage: ${
+                                legendArr[legendArr.length - 1] - data[i].value
+                              }" >
+                          </div>
+                          <p>${data[i].time}</p>
+                        </span>
+                      </td>`
+
+      if (i === data.length - 1)
+        addon = ` <td class="p-0">
+                    <span class="bar-container"
                           style="--range: ${legendArr[legendArr.length - 1]};
                                 --end:${legendArr[legendArr.length - 1] + 1}">
-                      <div class="bar" 
-                           style="--percentage: ${
-                             legendArr[legendArr.length - 1] - data[i].value
-                           }" >
+                      <div class="bar"
+                          style="--percentage: ${
+                            legendArr[legendArr.length - 1] - data[i].value
+                          }" >
                       </div>
-                      <p>${data[i].time}</p>
+                      <p class="text-end w-100 overflow-visible last-legend" >${
+                        data[i].time
+                      }</p>
                     </span>
                   </td>`
+      output += addon
     }
     return `<tbody> <tr id="${trId}"> ${output} </tr> </tbody>`
   }

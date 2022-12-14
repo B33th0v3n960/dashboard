@@ -21,54 +21,54 @@
       </div>
     </nav>
 
-    <div class="bg-light p-2 d-flex">
+    <div class="bg-light p-2 d-flex flex-wrap align-content-between">
       <div class="nav-link mx-3 active">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#dashboard" />
         </svg>
-        <p>Dashboard</p>
+        <p class="text-nowrap">Dashboard</p>
       </div>
 
       <div class="nav-link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#person" />
         </svg>
-        <p>Companies</p>
+        <p class="text-nowrap">Companies</p>
       </div>
 
       <div class="nav-link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#truck" />
         </svg>
-        <p>Couriers</p>
+        <p class="text-nowrap">Couriers</p>
       </div>
 
       <div class="nav-link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#customers" />
         </svg>
-        <p>Customers</p>
+        <p class="text-nowrap">Customers</p>
       </div>
 
       <div class="nav-link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#dashboard" />
         </svg>
-        <p>Jobs</p>
+        <p class="text-nowrap">Jobs</p>
       </div>
 
       <div class="nav-link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#cogs" />
         </svg>
-        <p>Configurations</p>
+        <p class="text-nowrap">Configurations</p>
       </div>
 
       <div class="nav-link mx-3">
         <svg class="icon">
           <use xlink:href="./img/sprite.svg#document" />
         </svg>
-        <p>Company Invoices</p>
+        <p class="text-nowrap">Company Invoices</p>
       </div>
     </div>
 
@@ -76,13 +76,14 @@
       <div class="mb-2 title-layout">
         <h1 class="fs-2">Dashboard</h1>
         <select
+          id="company-filter"
           class="form-select form-select-sm my-2"
           aria-label="Filter for companies"
         >
           <option selected>- All Companies -</option>
-          <option value="1">Company A</option>
-          <option value="2">Company B</option>
-          <option value="3">Company C</option>
+          <option value="companyA">Company A</option>
+          <option value="companyB">Company B</option>
+          <option value="companyC">Company C</option>
         </select>
       </div>
 
@@ -90,16 +91,15 @@
         <section class="bg-light rounded">
           <div class="row m-3 ms-1">
             <h2 class="fs-4 col">Completed Jobs</h2>
-            <input
-              type="month"
-              class="form-control col"
-              id="date-input"
-              value="2022-12"
-            />
-          </div>
 
+            <input type="month" class="form-control col" id="date-input" />
+          </div>
+          <div id="liveAlertPlaceholder"></div>
           <div class="overflow-y data">
-            <table id="job-table" class="table table-striped m-0"></table>
+            <table id="job-table" class="table table-striped m-0">
+              <thead id="job-thead" class="fw-semibold"></thead>
+              <tbody id="job-tbody"></tbody>
+            </table>
           </div>
         </section>
 
@@ -116,7 +116,7 @@
                   Submitted Jobs
                 </h2>
               </div>
-              <p class="fs-1 text-center">1,233</p>
+              <p id="submitted-jobs" class="fs-1 text-center"></p>
             </div>
           </div>
 
@@ -132,7 +132,7 @@
                   In progress Jobs
                 </h2>
               </div>
-              <p class="fs-1 text-center">1,231</p>
+              <p id="in-prgress-jobs" class="fs-1 text-center"></p>
             </div>
           </div>
 
@@ -148,7 +148,7 @@
                   Today Completed Jobs
                 </h2>
               </div>
-              <p class="fs-1 text-center">276</p>
+              <p id="completed-jobs" class="fs-1 text-center"></p>
             </div>
           </div>
 
@@ -164,7 +164,7 @@
                   Today Cancelled Jobs
                 </h2>
               </div>
-              <p class="fs-1 text-center">3</p>
+              <p id="cancelled-jobs" class="fs-1 text-center"></p>
             </div>
           </div>
         </section>
@@ -182,7 +182,7 @@
               Active Customers
             </h2>
           </div>
-          <p class="fs-1 text-center">1,213</p>
+          <p id="active-customers" class="fs-1 text-center"></p>
         </div>
 
         <div class="bg-light p-3 rounded">
@@ -196,7 +196,7 @@
               Inactive Customers
             </h2>
           </div>
-          <p class="fs-1 text-center">4,123</p>
+          <p id="inactive-customers" class="fs-1 text-center"></p>
         </div>
 
         <div class="bg-light p-3 rounded">
@@ -208,20 +208,23 @@
             </span>
             <h2 class="d-inline fs-3 fw-normal my-auto ms-3">Today Revenue</h2>
           </div>
-          <p class="fs-1 text-center">$5,124.12</p>
+          <p id="revenue" class="fs-1 text-center"></p>
         </div>
       </section>
 
       <section class="bg-light rounded mb-4">
-        <div class="p-3 overview-grid">
-          <h2 class="fs-3 text-uppercase m-0">Complete Job Overview</h2>
+        <div class="p-3 overview-grid border-bottom">
+          <h2 class="fs-3 text-uppercase m-0 text-nowrap">
+            Complete Job Overview
+          </h2>
 
-          <form class="d-flex justify-content-end">
+          <form id="job-overview-radio" class="d-flex justify-content-end">
             <input
               type="radio"
               class="btn-check"
               name="job-overview-time"
               id="job-overview-today"
+              value="today"
               checked
             />
             <label
@@ -236,6 +239,7 @@
               type="radio"
               class="btn-check"
               name="job-overview-time"
+              value="week"
               id="job-overview-week"
             />
             <label
@@ -249,6 +253,7 @@
               type="radio"
               class="btn-check"
               name="job-overview-time"
+              value="month"
               id="job-overview-month"
             />
             <label
@@ -262,6 +267,7 @@
               type="radio"
               class="btn-check"
               name="job-overview-time"
+              value="year"
               id="job-overview-year"
             />
             <label
@@ -273,7 +279,7 @@
           </form>
         </div>
 
-        <div class="d-flex overflow-x mt-2 p-3 border-top">
+        <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
           <div
             id="job-legend"
             class="me-3 d-flex flex-column justify-content-between legend"
@@ -284,15 +290,16 @@
       </section>
 
       <section class="bg-light rounded mb-4">
-        <div class="p-3 overview-grid">
-          <h2 class="fs-3 text-uppercase">Signup Overview</h2>
+        <div class="p-3 overview-grid border-bottom">
+          <h2 class="fs-3 text-uppercase text-nowrap">Signup Overview</h2>
 
-          <form class="d-flex justify-content-end">
+          <form id="sign-up-radio" class="d-flex justify-content-end">
             <input
               type="radio"
               class="btn-check"
               name="signup-overview-time"
               id="signup-overview-today"
+              value="today"
               checked
             />
             <label
@@ -307,6 +314,7 @@
               class="btn-check"
               name="signup-overview-time"
               id="signup-overview-week"
+              value="week"
             />
             <label
               class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
@@ -320,6 +328,7 @@
               class="btn-check"
               name="signup-overview-time"
               id="signup-overview-month"
+              value="month"
             />
             <label
               class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
@@ -330,7 +339,7 @@
           </form>
         </div>
 
-        <div class="d-flex overflow-x mt-2 p-3 border-top">
+        <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
           <div
             id="signup-legend"
             class="me-3 legend d-flex flex-column justify-content-between"
@@ -344,7 +353,10 @@
         <h2 class="m-3 fs-3">Last 30 days Google API Usage Report</h2>
 
         <div class="overflow-y p-0 data">
-          <table id="api-table" class="table table-striped m-0"></table>
+          <table id="api-table" class="table table-striped m-0">
+            <thead id="api-thead" class="fw-semibold"></thead>
+            <tbody id="api-tbody"></tbody>
+          </table>
         </div>
       </section>
     </main>

@@ -1,32 +1,38 @@
-export function fillTable(id, header, data) {
+import { filterTable } from './table-filter.js'
+
+export function fillTable(id, theadId, tbodyId, header, data) {
   const tableJobs = document.querySelector(id)
+  const thead = document.querySelector(theadId)
+  const tbody = document.querySelector(tbodyId)
   const head = tableHead(header)
   const body = tableBody(data, header)
 
-  tableJobs.innerHTML = `<thead class="fw-semibold"> ${head}</thead> ${body} `
+  thead.innerHTML = head
+  tbody.innerHTML = body
 
+  filterTable(id, tbodyId, header, data)
   function tableHead(tableHeader) {
     let output = ``
 
     for (let title in tableHeader) {
-      output += `<td scope="col">${tableHeader[title]}</td>`
+      output += `<td scope="col" id="${title}" class="table-head" >${tableHeader[title]}</td>`
     }
 
     return `<tr class='table-light'> ${output} </tr>`
   }
+}
 
-  function tableBody(companies, tableHeader) {
-    let output = ``
+export function tableBody(companies, tableHeader) {
+  let output = ``
 
-    for (let company of companies) {
-      let cache = ``
+  for (let company in companies) {
+    let cache = ``
 
-      for (let title in tableHeader) {
-        cache += `<td scope="row">${company[title]}</td>`
-      }
-      output += `<tr> ${cache} </tr>`
+    for (let title in tableHeader) {
+      cache += `<td scope="row">${companies[company][title]}</td>`
     }
-
-    return `<tbody> ${output} </tbody>`
+    output += `<tr> ${cache} </tr>`
   }
+
+  return output
 }
