@@ -3,6 +3,7 @@ import { layout } from './graph-layout.js'
 export function fillGraph(graphId, legendId, trId, data) {
   const graph = document.querySelector(graphId)
   const legend = document.querySelector(legendId)
+  console.log('data', data)
   const maxVal = getMax(data)
   const step = findStep(maxVal)
   const legendArr = [...createLegendsArr(maxVal, step)]
@@ -51,10 +52,12 @@ export function fillGraph(graphId, legendId, trId, data) {
                                     }">
                           <div class="bar" 
                               style="--percentage: ${
-                                legendArr[legendArr.length - 1] - data[i].value
+                                legendArr[legendArr.length - 1] -
+                                data[i].value +
+                                1
                               }" >
                           </div>
-                          <p>${data[i].time}</p>
+                          <p>${data[i].barLegend}</p>
                         </span>
                       </td>`
 
@@ -65,11 +68,11 @@ export function fillGraph(graphId, legendId, trId, data) {
                                 --end:${legendArr[legendArr.length - 1] + 1}">
                       <div class="bar"
                           style="--percentage: ${
-                            legendArr[legendArr.length - 1] - data[i].value
+                            legendArr[legendArr.length - 1] - data[i].value + 1
                           }" >
                       </div>
                       <p class="text-end w-100 overflow-visible last-legend" >${
-                        data[i].time
+                        data[i].barLegend
                       }</p>
                     </span>
                   </td>`

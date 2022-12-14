@@ -5,7 +5,7 @@ export function layout(graphId, trId) {
   if (graphTr)
     graph.style.setProperty(
       '--last-width',
-      `${25 / graphTr.childElementCount}%`
+      `${50 / graphTr.childElementCount}%`
     )
 
   guidlineSize(graph)

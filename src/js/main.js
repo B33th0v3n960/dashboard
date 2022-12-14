@@ -7,19 +7,20 @@ import { fillGraph } from './graph/graph.js'
 import { graphBtn } from './graph/graph-btn.js'
 import { fillTable } from './table/table.js'
 import { changeTableDate } from './table/job-date.js'
+import { topCompany } from './graph/top-company.js'
 
 const info = data.companyA
 const job = info.job
 const api = info.api
 const jobGraphData = info.jobGraphData
 const signupGraphData = info.signupGraphData
-const companyJobGraphData = info.companyJobsGraphData
-const companyRevenueGraphData = info.companyRevenueGraphData
-const overallRevenueGraphData = info.overallRevenueGraphData
 
 const now = new Date()
 const month = `${now.getFullYear()}-${now.getMonth() + 1}`
 const monthJobData = job[month]
+const companyJobGraphData = topCompany(monthJobData.data, 'completedJobs')
+const companyRevenueGraphData = topCompany(monthJobData.data, 'companyIncome')
+const overallRevenueGraphData = info.overallRevenueGraphData
 
 fillTable(
   '#job-table',
@@ -46,13 +47,13 @@ fillGraph(
   '#top-company-job-graph',
   '#top-company-job-legend',
   'top-company-job-graph-tr',
-  companyJobGraphData.today
+  companyJobGraphData
 )
 fillGraph(
   '#top-company-revenue-graph',
   '#top-company-revenue-legend',
   'top-company-revenue-graph-tr',
-  companyRevenueGraphData.today
+  companyRevenueGraphData
 )
 fillGraph(
   '#overall-revenue-graph',
@@ -83,7 +84,3 @@ fillInformation('#submitted-jobs', info.submittedJobs)
 fillInformation('#in-prgress-jobs', info.inProgressJobs)
 fillInformation('#completed-jobs', info.completedJobs)
 fillInformation('#cancelled-jobs', info.cancelledJobs)
-
-fillInformation('#active-customers', info.activeCustomers)
-fillInformation('#inactive-customers', info.inActiveCustomers)
-fillInformation('#revenue', `$${info.revenue}`)
