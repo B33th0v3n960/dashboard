@@ -6,15 +6,17 @@ export function layout() {
   const bar = document.querySelectorAll('.bar-container')
 
   // set the length of the last td element in bar chart
-  jobGraph.style.setProperty(
-    '--last-width',
-    `${25 / jobGraphTr.childElementCount}%`
-  )
+  if (jobGraphTr)
+    jobGraph.style.setProperty(
+      '--last-width',
+      `${25 / jobGraphTr.childElementCount}%`
+    )
 
-  signUpGraph.style.setProperty(
-    '--last-width',
-    `${25 / signupGraphTr.childElementCount}%`
-  )
+  if (signupGraphTr)
+    signUpGraph.style.setProperty(
+      '--last-width',
+      `${25 / signupGraphTr.childElementCount}%`
+    )
 
   // set horizontal guideline size to be equal to graph length
   jobGuidelineSize()

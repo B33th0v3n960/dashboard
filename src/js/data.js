@@ -1,356 +1,288 @@
-export const job = {
-  '2022-12': {
-    header: {
-      companyId: 'Company ID',
-      companyName: 'Company Name',
-      completedJobs: 'Completed Jobs',
-      totalSMS: 'Total SMS',
-    },
-    data: [
-      {
-        companyId: '2',
-        companyName: 'company g',
-        completedJobs: '1123',
-        totalSMS: '54',
-      },
-
-      {
-        companyId: '23',
-        companyName: 'company f',
-        completedJobs: '53',
-        totalSMS: '234',
-      },
-
-      {
-        companyId: '12',
-        companyName: 'company e',
-        completedJobs: '193',
-        totalSMS: '75',
-      },
-      {
-        companyId: '35',
-        companyName: 'company d',
-        completedJobs: '39',
-        totalSMS: '53',
-      },
-      {
-        companyId: '14',
-        companyName: 'company c',
-        completedJobs: '593',
-        totalSMS: '173',
-      },
-      {
-        companyId: '63',
-        companyName: 'company b',
-        completedJobs: '1213',
-        totalSMS: '6',
-      },
-      {
-        companyId: '27',
-        companyName: 'company a',
-        completedJobs: '13',
-        totalSMS: '84',
-      },
-    ],
-  },
-  '2022-11': {
-    header: {
-      companyId: 'Company ID',
-      companyName: 'Company Name',
-      completedJobs: 'Completed Jobs',
-      totalSMS: 'Total SMS',
-    },
-    data: [
-      {
-        companyId: '2',
-        companyName: 'company g',
-        completedJobs: '123',
-        totalSMS: '45',
-      },
-
-      {
-        companyId: '23',
-        companyName: 'company f',
-        completedJobs: '86',
-        totalSMS: '459',
-      },
-      {
-        companyId: '35',
-        companyName: 'company d',
-        completedJobs: '43',
-        totalSMS: '53',
-      },
-      {
-        companyId: '63',
-        companyName: 'company b',
-        completedJobs: '608',
-        totalSMS: '22',
-      },
-      {
-        companyId: '27',
-        companyName: 'company a',
-        completedJobs: '20',
-        totalSMS: '349',
-      },
-    ],
-  },
-  '2022-10': {
-    header: {
-      companyId: 'Company ID',
-      companyName: 'Company Name',
-      completedJobs: 'Completed Jobs',
-      totalSMS: 'Total SMS',
-    },
-    data: [
-      {
-        companyId: '2',
-        companyName: 'company g',
-        completedJobs: '234',
-        totalSMS: '234',
-      },
-
-      {
-        companyId: '23',
-        companyName: 'company f',
-        completedJobs: '53',
-        totalSMS: '45',
-      },
-      {
-        companyId: '35',
-        companyName: 'company d',
-        completedJobs: '69',
-        totalSMS: '60',
-      },
-      {
-        companyId: '63',
-        companyName: 'company b',
-        completedJobs: '62',
-        totalSMS: '86',
-      },
-      {
-        companyId: '27',
-        companyName: 'company a',
-        completedJobs: '223',
-        totalSMS: '84',
-      },
-    ],
-  },
-  '2022-09': {
-    header: {
-      companyId: 'Company ID',
-      companyName: 'Company Name',
-      completedJobs: 'Completed Jobs',
-      totalSMS: 'Total SMS',
-    },
-    data: [
-      {
-        companyId: '2',
-        companyName: 'company g',
-        completedJobs: '83',
-        totalSMS: '5',
-      },
-
-      {
-        companyId: '1',
-        companyName: 'company f',
-        completedJobs: '73',
-        totalSMS: '12',
-      },
-
-      {
-        companyId: '3',
-        companyName: 'company e',
-        completedJobs: '13',
-        totalSMS: '34',
-      },
-      {
-        companyId: '4',
-        companyName: 'company d',
-        completedJobs: '53',
-        totalSMS: '68',
-      },
-    ],
-  },
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1) + min) // The maximum is inclusive and the minimum is inclusive
 }
 
-export const api = {
-  header: {
-    companyName: 'Company Name',
-    map: 'Map',
-    direction: 'Direction',
-    distanceMatrix: 'Distance Matrix',
-    georecorder: 'Georecorder',
-    place: 'Place',
+function randomLetter() {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  return alphabet.charAt(Math.floor(Math.random() * alphabet.length))
+}
+
+function generateJobData(num) {
+  const output = []
+  for (let i = 0; i < num; i++)
+    output.push({
+      companyId: getRandomIntInclusive(20, 500),
+      companyName: `company ${randomLetter()}`,
+      completedJobs: getRandomIntInclusive(20, 500),
+      totalSMS: getRandomIntInclusive(20, 500),
+    })
+  return output
+}
+
+function generateApiData(num) {
+  const output = []
+  for (let i = 0; i < num; i++)
+    output.push({
+      companyName: `company ${randomLetter()}`,
+      map: getRandomIntInclusive(0, 100),
+      direction: getRandomIntInclusive(50, 1000),
+      distanceMatrix: getRandomIntInclusive(50, 1000),
+      georecorder: getRandomIntInclusive(20, 400),
+      place: getRandomIntInclusive(10, 500),
+    })
+  return output
+}
+
+function generateGraphData(arr, min, max) {
+  const output = []
+  for (let i of arr) {
+    output.push({ time: i, value: getRandomIntInclusive(min, max) })
+  }
+  return output
+}
+
+const day = [
+  '0.00',
+  '1.00',
+  '2.00',
+  '3.00',
+  '4.00',
+  '5.00',
+  '6.00',
+  '7.00',
+  '8.00',
+  '9.00',
+  '10.00',
+  '11.00',
+  '12.00',
+  '13.00',
+  '14.00',
+  '15.00',
+  '16.00',
+  '17.00',
+  '18.00',
+  '19.00',
+  '20.00',
+  '21.00',
+  '22.00',
+  '23.00',
+  '0.00',
+]
+const week = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+]
+const month = ['week 1', 'week 2', 'week 3', 'week 4']
+const year = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+]
+
+export const data = {
+  companyA: {
+    job: {
+      '2022-12': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(41)],
+      },
+      '2022-11': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(45)],
+      },
+      '2022-10': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(38)],
+      },
+      '2022-09': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(23)],
+      },
+    },
+    api: {
+      header: {
+        companyName: 'Company Name',
+        map: 'Map',
+        direction: 'Direction',
+        distanceMatrix: 'Distance Matrix',
+        georecorder: 'Georecorder',
+        place: 'Place',
+      },
+
+      data: [...generateApiData(21)],
+    },
+    jobGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+      year: [...generateGraphData(year, 0, 50)],
+    },
+    signupGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
   },
+  companyB: {
+    job: {
+      '2022-12': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(41)],
+      },
+      '2022-11': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(45)],
+      },
+      '2022-10': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(38)],
+      },
+      '2022-09': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(23)],
+      },
+    },
+    api: {
+      header: {
+        companyName: 'Company Name',
+        map: 'Map',
+        direction: 'Direction',
+        distanceMatrix: 'Distance Matrix',
+        georecorder: 'Georecorder',
+        place: 'Place',
+      },
 
-  data: [
-    {
-      companyName: 'company c',
-      map: 12,
-      direction: 121,
-      distanceMatrix: 53,
-      georecorder: 631,
-      place: 21,
+      data: [...generateApiData(21)],
     },
-    {
-      companyName: 'company f',
-      map: 32,
-      direction: 31,
-      distanceMatrix: 23,
-      georecorder: 12,
-      place: 61,
+    jobGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+      year: [...generateGraphData(year, 0, 50)],
     },
-    {
-      companyName: 'company d',
-      map: 41,
-      direction: 11,
-      distanceMatrix: 78,
-      georecorder: 96,
-      place: 34,
+    signupGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
     },
-    {
-      companyName: 'company e',
-      map: 90,
-      direction: 69,
-      distanceMatrix: 113,
-      georecorder: 51,
-      place: 97,
+  },
+  companyC: {
+    job: {
+      '2022-12': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(41)],
+      },
+      '2022-11': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(45)],
+      },
+      '2022-10': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(38)],
+      },
+      '2022-09': {
+        header: {
+          companyId: 'Company ID',
+          companyName: 'Company Name',
+          completedJobs: 'Completed Jobs',
+          totalSMS: 'Total SMS',
+        },
+        data: [...generateJobData(23)],
+      },
     },
-    {
-      companyName: 'company a',
-      map: 38,
-      direction: 54,
-      distanceMatrix: 65,
-      georecorder: 863,
-      place: 144,
-    },
-    {
-      companyName: 'company g',
-      map: 124,
-      direction: 1231,
-      distanceMatrix: 453,
-      georecorder: 782,
-      place: 134,
-    },
-    {
-      companyName: 'company b',
-      map: 345,
-      direction: 45,
-      distanceMatrix: 233,
-      georecorder: 356,
-      place: 793,
-    },
-    {
-      companyName: 'company h',
-      map: 23,
-      direction: 121,
-      distanceMatrix: 643,
-      georecorder: 561,
-      place: 345,
-    },
-  ],
-}
+    api: {
+      header: {
+        companyName: 'Company Name',
+        map: 'Map',
+        direction: 'Direction',
+        distanceMatrix: 'Distance Matrix',
+        georecorder: 'Georecorder',
+        place: 'Place',
+      },
 
-export const jobGraphData = {
-  today: [
-    { time: '0.00', value: 12 },
-    { time: '1.00', value: 32 },
-    { time: '2.00', value: 62 },
-    { time: '3.00', value: 14 },
-    { time: '4.00', value: 23 },
-    { time: '5.00', value: 95 },
-    { time: '6.00', value: 45 },
-    { time: '7.00', value: 76 },
-    { time: '8.00', value: 12 },
-    { time: '9.00', value: 12 },
-    { time: '10.00', value: 12 },
-    { time: '11.00', value: 12 },
-    { time: '12.00', value: 35 },
-    { time: '13.00', value: 12 },
-    { time: '14.00', value: 12 },
-    { time: '15.00', value: 34 },
-    { time: '16.00', value: 12 },
-    { time: '17.00', value: 65 },
-    { time: '18.00', value: 12 },
-    { time: '19.00', value: 23 },
-    { time: '20.00', value: 12 },
-    { time: '21.00', value: 76 },
-    { time: '22.00', value: 12 },
-    { time: '23.00', value: 12 },
-    { time: '0.00', value: 12 },
-  ],
-  week: [
-    { time: 'Monday', value: 12 },
-    { time: 'Tuesday', value: 32 },
-    { time: 'Wednesday', value: 62 },
-    { time: 'Thursday', value: 14 },
-    { time: 'Friday', value: 14 },
-    { time: 'Saturday', value: 14 },
-    { time: 'Sunday', value: 14 },
-  ],
-  month: [
-    { time: 'week 1', value: 12 },
-    { time: 'week 2', value: 32 },
-    { time: 'week 3', value: 62 },
-    { time: 'week 4', value: 14 },
-  ],
-  year: [
-    { time: 'January', value: 12 },
-    { time: 'February', value: 32 },
-    { time: 'March', value: 62 },
-    { time: 'April', value: 14 },
-    { time: 'May', value: 14 },
-    { time: 'June', value: 14 },
-    { time: 'July', value: 14 },
-    { time: 'August', value: 12 },
-    { time: 'September', value: 32 },
-    { time: 'October', value: 62 },
-    { time: 'November', value: 14 },
-    { time: 'December', value: 14 },
-  ],
-}
-
-export const signupGraphData = {
-  today: [
-    { time: '0.00', value: 0 },
-    { time: '1.00', value: 1 },
-    { time: '2.00', value: 2 },
-    { time: '3.00', value: 3 },
-    { time: '4.00', value: 4 },
-    { time: '5.00', value: 5 },
-    { time: '6.00', value: 6 },
-    { time: '7.00', value: 7 },
-    { time: '8.00', value: 8 },
-    { time: '9.00', value: 9 },
-    { time: '10.00', value: 1 },
-    { time: '11.00', value: 1 },
-    { time: '12.00', value: 3 },
-    { time: '13.00', value: 1 },
-    { time: '14.00', value: 2 },
-    { time: '15.00', value: 3 },
-    { time: '16.00', value: 2 },
-    { time: '17.00', value: 6 },
-    { time: '18.00', value: 1 },
-    { time: '19.00', value: 2 },
-    { time: '20.00', value: 1 },
-    { time: '21.00', value: 7 },
-    { time: '22.00', value: 1 },
-    { time: '23.00', value: 2 },
-    { time: '0.00', value: 2 },
-  ],
-  week: [
-    { time: 'Monday', value: 12 },
-    { time: 'Tuesday', value: 32 },
-    { time: 'Wednesday', value: 62 },
-    { time: 'Thursday', value: 14 },
-    { time: 'Friday', value: 14 },
-    { time: 'Saturday', value: 14 },
-    { time: 'Sunday', value: 14 },
-  ],
-  month: [
-    { time: 'week 1', value: 12 },
-    { time: 'week 2', value: 32 },
-    { time: 'week 3', value: 62 },
-    { time: 'week 4', value: 14 },
-  ],
+      data: [...generateApiData(21)],
+    },
+    jobGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+      year: [...generateGraphData(year, 0, 50)],
+    },
+    signupGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+  },
 }

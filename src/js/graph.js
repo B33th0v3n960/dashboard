@@ -1,3 +1,5 @@
+import { layout } from './graph-layout.js'
+
 export function fillGraph(graphId, legendId, trId, data) {
   const graph = document.querySelector(graphId)
   const legend = document.querySelector(legendId)
@@ -6,6 +8,7 @@ export function fillGraph(graphId, legendId, trId, data) {
 
   legend.innerHTML = createLegends()
   graph.innerHTML = createBars()
+  layout()
 
   function createLegends() {
     let output = ``
@@ -15,7 +18,8 @@ export function fillGraph(graphId, legendId, trId, data) {
     console.log(maxVal)
 
     // find suitable steps of incrementation
-    if (maxVal < 10) step = 1
+    if (maxVal <= 10) step = 1
+    else if (maxVal < 30) step = 5
     else if (maxVal <= 50) step = 10
     else step = 50
     for (let i = 0; i < maxVal + step; i += step) legendArr.push(i)
@@ -32,10 +36,11 @@ export function fillGraph(graphId, legendId, trId, data) {
     let output = ``
 
     //create guidline
-    for (let i = 0; i < legendArr.length - 1; i += step) {
+    for (let i = 1; i < legendArr.length - 1; i++) {
       output += `<div class="guideline" 
-                      style="--start: ${i + step + 1}" >
+                      style="--start: ${i * step + 1}" >
                  </div>`
+      console.log(`this is guideline: ${i * step + 1}`)
     }
     output = `<th class="p-0 w-0">
                 <span

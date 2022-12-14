@@ -1,11 +1,16 @@
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
-import { job, api, jobGraphData, signupGraphData } from './data.js'
+import { data } from './data.js'
 import { fillTable } from './table.js'
 import { fillGraph } from './graph.js'
-import { layout } from './graph-layout.js'
 import { graphBtn } from './graph-btn.js'
 import { changeTableDate } from './job-date.js'
+import { filterCompany } from './company-filter.js'
+
+const job = data.companyA.job
+const api = data.companyA.api
+const jobGraphData = data.companyA.jobGraphData
+const signupGraphData = data.companyA.signupGraphData
 
 const now = new Date()
 const month = `${now.getFullYear()}-${now.getMonth() + 1}`
@@ -27,15 +32,12 @@ fillGraph(
   'job-overview-graph-tr',
   jobGraphData.today
 )
-
 fillGraph(
   '#sign-up-graph',
   '#signup-legend',
   'sign-up-graph-tr',
   signupGraphData.today
 )
-
-layout()
 
 graphBtn(
   '#job-overview-radio',
@@ -52,4 +54,5 @@ graphBtn(
   signupGraphData
 )
 
-changeTableDate('#date-input')
+changeTableDate('#date-input', 'companyA')
+filterCompany('#company-filter')

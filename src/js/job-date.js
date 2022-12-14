@@ -1,7 +1,8 @@
 import { fillTable } from './table.js'
-import { job } from './data.js'
+import { data } from './data.js'
 
-export function changeTableDate(id) {
+export function changeTableDate(id, company) {
+  const job = data[company].job
   const input = document.querySelector(id)
   input.addEventListener('input', () => {
     const monthJobData = job[input.value]

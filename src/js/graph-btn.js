@@ -16,7 +16,6 @@ export function graphBtn(id, graphId, legendId, trId, data) {
         console.log(element.value)
 
         fillGraph(graphId, legendId, trId, data[time])
-        layout()
       }
     }
   }
