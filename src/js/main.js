@@ -6,15 +6,16 @@ import { fillGraph } from './graph.js'
 import { graphBtn } from './graph-btn.js'
 import { changeTableDate } from './job-date.js'
 import { filterCompany } from './company-filter.js'
+import { fillInformation } from './card.js'
 
-const job = data.companyA.job
-const api = data.companyA.api
-const jobGraphData = data.companyA.jobGraphData
-const signupGraphData = data.companyA.signupGraphData
+const info = data.companyA
+const job = info.job
+const api = info.api
+const jobGraphData = info.jobGraphData
+const signupGraphData = info.signupGraphData
 
 const now = new Date()
 const month = `${now.getFullYear()}-${now.getMonth() + 1}`
-console.log(month)
 const monthJobData = job[month]
 
 fillTable(
@@ -56,3 +57,12 @@ graphBtn(
 
 changeTableDate('#date-input', 'companyA')
 filterCompany('#company-filter')
+
+fillInformation('#submitted-jobs', info.submittedJobs)
+fillInformation('#in-prgress-jobs', info.inProgressJobs)
+fillInformation('#completed-jobs', info.completedJobs)
+fillInformation('#cancelled-jobs', info.cancelledJobs)
+
+fillInformation('#active-customers', info.activeCustomers)
+fillInformation('#inactive-customers', info.inActiveCustomers)
+fillInformation('#revenue', `$${info.revenue}`)

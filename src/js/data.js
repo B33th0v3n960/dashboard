@@ -158,6 +158,13 @@ export const data = {
       week: [...generateGraphData(week, 0, 20)],
       month: [...generateGraphData(month, 0, 50)],
     },
+    submittedJobs: getRandomIntInclusive(700, 1500),
+    inProgressJobs: getRandomIntInclusive(700, 1500),
+    completedJobs: getRandomIntInclusive(700, 1500),
+    cancelledJobs: getRandomIntInclusive(0, 50),
+    activeCustomers: getRandomIntInclusive(700, 1500),
+    inActiveCustomers: getRandomIntInclusive(700, 1500),
+    revenue: getRandomIntInclusive(90000, 200000) / 100,
   },
   companyB: {
     job: {
@@ -221,6 +228,13 @@ export const data = {
       week: [...generateGraphData(week, 0, 20)],
       month: [...generateGraphData(month, 0, 50)],
     },
+    submittedJobs: getRandomIntInclusive(700, 1500),
+    inProgressJobs: getRandomIntInclusive(700, 1500),
+    completedJobs: getRandomIntInclusive(700, 1500),
+    cancelledJobs: getRandomIntInclusive(0, 50),
+    activeCustomers: getRandomIntInclusive(700, 1500),
+    inActiveCustomers: getRandomIntInclusive(700, 1500),
+    revenue: getRandomIntInclusive(90000, 200000) / 100,
   },
   companyC: {
     job: {
@@ -284,5 +298,12 @@ export const data = {
       week: [...generateGraphData(week, 0, 20)],
       month: [...generateGraphData(month, 0, 50)],
     },
+    submittedJobs: getRandomIntInclusive(700, 1500),
+    inProgressJobs: getRandomIntInclusive(700, 1500),
+    completedJobs: getRandomIntInclusive(700, 1500),
+    cancelledJobs: getRandomIntInclusive(0, 50),
+    activeCustomers: getRandomIntInclusive(700, 1500),
+    inActiveCustomers: getRandomIntInclusive(700, 1500),
+    revenue: getRandomIntInclusive(90000, 200000) / 100,
   },
 }

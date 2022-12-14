@@ -13,11 +13,9 @@ export function fillTable(id, theadId, tbodyId, header, data) {
   filterTable(id, tbodyId, header, data)
   function tableHead(tableHeader) {
     let output = ``
-    console.log(tableHeader)
 
     for (let title in tableHeader) {
       output += `<td scope="col" id="${title}" class="table-head" >${tableHeader[title]}</td>`
-      console.log(output)
     }
 
     return `<tr class='table-light'> ${output} </tr>`

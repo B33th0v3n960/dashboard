@@ -15,7 +15,6 @@ export function fillGraph(graphId, legendId, trId, data) {
 
     //find the max value from the data
     const maxVal = getMax(data)
-    console.log(maxVal)
 
     // find suitable steps of incrementation
     if (maxVal <= 10) step = 1
@@ -40,7 +39,6 @@ export function fillGraph(graphId, legendId, trId, data) {
       output += `<div class="guideline" 
                       style="--start: ${i * step + 1}" >
                  </div>`
-      console.log(`this is guideline: ${i * step + 1}`)
     }
     output = `<th class="p-0 w-0">
                 <span

@@ -14,6 +14,5 @@ export function changeTableDate(id, company) {
       monthJobData.header,
       monthJobData.data
     )
-    console.log('change month of job data to:', input.value)
   })
 }
