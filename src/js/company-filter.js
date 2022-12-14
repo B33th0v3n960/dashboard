@@ -1,9 +1,9 @@
 import { data } from './data.js'
-import { fillTable } from './table.js'
-import { fillGraph } from './graph.js'
-import { graphBtn } from './graph-btn.js'
-import { changeTableDate } from './job-date.js'
 import { fillInformation } from './card.js'
+import { fillTable } from './table/table.js'
+import { changeTableDate } from './table/job-date.js'
+import { fillGraph } from './graph/graph.js'
+import { graphBtn } from './graph/graph-btn.js'
 
 export function filterCompany(id) {
   const filter = document.querySelector(id)
@@ -55,7 +55,7 @@ export function filterCompany(id) {
       signupGraphData
     )
 
-    changeTableDate('#date-input', 'companyA')
+    changeTableDate('#date-input', filter.value)
 
     fillInformation('#submitted-jobs', info.submittedJobs)
     fillInformation('#in-prgress-jobs', info.inProgressJobs)

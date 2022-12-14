@@ -1,12 +1,12 @@
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 import { data } from './data.js'
-import { fillTable } from './table.js'
-import { fillGraph } from './graph.js'
-import { graphBtn } from './graph-btn.js'
-import { changeTableDate } from './job-date.js'
 import { filterCompany } from './company-filter.js'
 import { fillInformation } from './card.js'
+import { fillGraph } from './graph/graph.js'
+import { graphBtn } from './graph/graph-btn.js'
+import { fillTable } from './table/table.js'
+import { changeTableDate } from './table/job-date.js'
 
 const info = data.companyA
 const job = info.job

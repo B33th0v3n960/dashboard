@@ -1,5 +1,5 @@
 import { fillTable } from './table.js'
-import { data } from './data.js'
+import { data } from '../data.js'
 
 export function changeTableDate(id, company) {
   const job = data[company].job

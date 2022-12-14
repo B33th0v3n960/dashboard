@@ -3,25 +3,16 @@ import { layout } from './graph-layout.js'
 export function fillGraph(graphId, legendId, trId, data) {
   const graph = document.querySelector(graphId)
   const legend = document.querySelector(legendId)
-  const legendArr = []
-  var step // used so change made to the variable from a function is visible in global scope
+  const maxVal = getMax(data)
+  const step = findStep(maxVal)
+  const legendArr = [...createLegendsArr(maxVal, step)]
 
   legend.innerHTML = createLegends()
   graph.innerHTML = createBars()
-  layout()
+  layout(graphId, `#${trId}`)
 
   function createLegends() {
     let output = ``
-
-    //find the max value from the data
-    const maxVal = getMax(data)
-
-    // find suitable steps of incrementation
-    if (maxVal <= 10) step = 1
-    else if (maxVal < 30) step = 5
-    else if (maxVal <= 50) step = 10
-    else step = 50
-    for (let i = 0; i < maxVal + step; i += step) legendArr.push(i)
 
     // create legends
     for (let i = legendArr.length; i > 0; i -= 1) {
@@ -86,6 +77,19 @@ export function fillGraph(graphId, legendId, trId, data) {
     }
     return `<tbody> <tr id="${trId}"> ${output} </tr> </tbody>`
   }
+}
+
+function findStep(maxVal) {
+  if (maxVal <= 10) return 1
+  else if (maxVal < 30) return 5
+  else if (maxVal <= 50) return 10
+  return 50
+}
+
+function createLegendsArr(maxVal, step) {
+  const output = []
+  for (let i = 0; i < maxVal + step; i += step) output.push(i)
+  return output
 }
 
 function getMax(arr) {
