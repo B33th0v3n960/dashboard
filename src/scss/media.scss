@@ -2,11 +2,15 @@
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  .title-layout,
+
   .overview-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .title-layout {
+    grid-template-columns: 1fr 2fr 3fr;
+    gap: 20px;
+  }
   .overview-grid div {
     display: flex;
     justify-content: flex-end;

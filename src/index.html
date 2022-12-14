@@ -73,8 +73,10 @@
     </div>
 
     <main class="m-3">
+      <div id="liveAlertPlaceholder"></div>
       <div class="mb-2 title-layout">
         <h1 class="fs-2">Dashboard</h1>
+        <input type="month" class="form-control col m-2" id="date-input" />
         <select
           id="company-filter"
           class="form-select form-select-sm my-2"
@@ -91,10 +93,8 @@
         <section class="bg-light rounded">
           <div class="row m-3 ms-1">
             <h2 class="fs-4 col">Completed Jobs</h2>
-
-            <input type="month" class="form-control col" id="date-input" />
           </div>
-          <div id="liveAlertPlaceholder"></div>
+
           <div class="overflow-y data">
             <table id="job-table" class="table table-striped m-0">
               <thead id="job-thead" class="fw-semibold"></thead>
@@ -169,6 +169,244 @@
           </div>
         </section>
       </div>
+
+      <section class="bg-light rounded mb-4">
+        <div class="p-3 overview-grid border-bottom">
+          <h2 class="fs-3 text-uppercase m-0 text-nowrap">
+            Top 10 Company Jobs
+          </h2>
+
+          <form id="job-overview-radio" class="d-flex justify-content-end">
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              id="job-overview-today"
+              value="today"
+              checked
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-today"
+              checked
+            >
+              Today
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              value="week"
+              id="job-overview-week"
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-week"
+            >
+              Week
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              value="month"
+              id="job-overview-month"
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-month"
+            >
+              Month
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              value="year"
+              id="job-overview-year"
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-year"
+            >
+              Year
+            </label>
+          </form>
+        </div>
+
+        <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
+          <div
+            id="top-company-job-legend"
+            class="me-3 d-flex flex-column justify-content-between legend"
+          ></div>
+
+          <table
+            id="top-company-job-graph"
+            class="table table-bordered"
+          ></table>
+        </div>
+      </section>
+
+      <section class="bg-light rounded mb-4">
+        <div class="p-3 overview-grid border-bottom">
+          <h2 class="fs-3 text-uppercase m-0 text-nowrap">
+            Top 10 Company Revenue
+          </h2>
+
+          <form id="job-overview-radio" class="d-flex justify-content-end">
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              id="job-overview-today"
+              value="today"
+              checked
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-today"
+              checked
+            >
+              Today
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              value="week"
+              id="job-overview-week"
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-week"
+            >
+              Week
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              value="month"
+              id="job-overview-month"
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-month"
+            >
+              Month
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              value="year"
+              id="job-overview-year"
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-year"
+            >
+              Year
+            </label>
+          </form>
+        </div>
+
+        <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
+          <div
+            id="top-company-revenue-legend"
+            class="me-3 d-flex flex-column justify-content-between legend"
+          ></div>
+
+          <table
+            id="top-company-revenue-graph"
+            class="table table-bordered"
+          ></table>
+        </div>
+      </section>
+
+      <section class="bg-light rounded mb-4">
+        <div class="p-3 overview-grid border-bottom">
+          <h2 class="fs-3 text-uppercase m-0 text-nowrap">Overall Revenue</h2>
+
+          <form id="job-overview-radio" class="d-flex justify-content-end">
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              id="job-overview-today"
+              value="today"
+              checked
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-today"
+              checked
+            >
+              Today
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              value="week"
+              id="job-overview-week"
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-week"
+            >
+              Week
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              value="month"
+              id="job-overview-month"
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-month"
+            >
+              Month
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="job-overview-time"
+              value="year"
+              id="job-overview-year"
+            />
+            <label
+              class="btn btn-outline-success rounded-pill border-0 px-3 py-2 mx-3 black-text-label"
+              for="job-overview-year"
+            >
+              Year
+            </label>
+          </form>
+        </div>
+
+        <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
+          <div
+            id="overall-revenue-legend"
+            class="me-3 d-flex flex-column justify-content-between legend"
+          ></div>
+
+          <table
+            id="overall-revenue-graph"
+            class="table table-bordered"
+          ></table>
+        </div>
+      </section>
 
       <section class="bg-light rounded mb-4">
         <div class="p-3 overview-grid border-bottom">

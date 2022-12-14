@@ -173,6 +173,21 @@ export const data = {
       week: [...generateGraphData(week, 0, 20)],
       month: [...generateGraphData(month, 0, 50)],
     },
+    companyJobsGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    companyRevenueGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    overallRevenueGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
     submittedJobs: getRandomIntInclusive(700, 1500),
     inProgressJobs: getRandomIntInclusive(700, 1500),
     completedJobs: getRandomIntInclusive(700, 1500),

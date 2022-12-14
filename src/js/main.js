@@ -13,6 +13,9 @@ const job = info.job
 const api = info.api
 const jobGraphData = info.jobGraphData
 const signupGraphData = info.signupGraphData
+const companyJobGraphData = info.companyJobsGraphData
+const companyRevenueGraphData = info.companyRevenueGraphData
+const overallRevenueGraphData = info.overallRevenueGraphData
 
 const now = new Date()
 const month = `${now.getFullYear()}-${now.getMonth() + 1}`
@@ -38,6 +41,24 @@ fillGraph(
   '#signup-legend',
   'sign-up-graph-tr',
   signupGraphData.today
+)
+fillGraph(
+  '#top-company-job-graph',
+  '#top-company-job-legend',
+  'top-company-job-graph-tr',
+  companyJobGraphData.today
+)
+fillGraph(
+  '#top-company-revenue-graph',
+  '#top-company-revenue-legend',
+  'top-company-revenue-graph-tr',
+  companyRevenueGraphData.today
+)
+fillGraph(
+  '#overall-revenue-graph',
+  '#overall-revenue-legend',
+  'overall-revenue-graph-tr',
+  overallRevenueGraphData.today
 )
 
 graphBtn(
