@@ -1,5 +1,8 @@
 import { fillTable } from './table.js'
 import { data } from '../data.js'
+import { topCompany } from '../graph/top-company.js'
+import { fillGraph } from '../graph/graph.js'
+import { fillInformation } from '../card.js'
 
 export function changeTableDate(id, company) {
   const job = data[company].job
@@ -8,6 +11,11 @@ export function changeTableDate(id, company) {
   input.addEventListener('input', () => {
     const monthJobData = job[input.value]
     const monthApiData = api[input.value]
+    const companyJobGraphData = topCompany(monthJobData.data, 'completedJobs')
+    const companyRevenueGraphData = topCompany(
+      monthJobData.data,
+      'companyIncome'
+    )
 
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 
@@ -42,6 +50,25 @@ export function changeTableDate(id, company) {
       '#api-tbody',
       monthApiData.header,
       monthApiData.data
+    )
+
+    fillGraph(
+      '#top-company-revenue-graph',
+      '#top-company-revenue-legend',
+      'top-company-revenue-graph-tr',
+      companyRevenueGraphData
+    )
+    console.log('upgrade')
+    fillGraph(
+      '#top-company-job-graph',
+      '#top-company-job-legend',
+      'top-company-job-graph-tr',
+      companyJobGraphData
+    )
+
+    fillInformation(
+      '#top-company-job-total',
+      `Total: ${companyJobGraphData[0].value}`
     )
   })
 }
