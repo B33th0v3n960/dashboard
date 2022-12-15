@@ -1,3 +1,5 @@
+import { year } from './new-data.js'
+
 export function parseCompletedJobs(data, year, month) {
   const output = []
   for (let company of data) {
@@ -28,5 +30,15 @@ export function parseApiGraph(data, year, month) {
     })
   }
 
+  return output
+}
+
+export function parseYearData(data, key) {
+  const output = []
+  for (let month of year) {
+    console.log(month)
+    console.log(data[month])
+    output.push({ barLegend: month, value: data[month].job[key] })
+  }
   return output
 }

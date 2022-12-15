@@ -14,7 +14,11 @@ import {
   layoutData,
   overall,
 } from './data/new-data.js'
-import { parseCompletedJobs, parseApiGraph } from './data/parse-data.js'
+import {
+  parseCompletedJobs,
+  parseApiGraph,
+  parseYearData,
+} from './data/parse-data.js'
 
 const info = newData
 const jobGraphData = graphData.jobGraphData
@@ -25,8 +29,15 @@ const month = now.getMonth()
 const fullYear = now.getFullYear()
 const monthJobData = parseCompletedJobs(info, fullYear, year[month])
 const monthApiData = parseApiGraph(info, fullYear, year[month])
-const companyJobGraphData = topCompany(monthJobData, 'completedJobs')
-const companyRevenueGraphData = topCompany(monthJobData, 'companyIncome')
+const companyJobGraphData = parseYearData(
+  newData[0].data[2019],
+  'completedJobs'
+)
+// const companyJobGraphData = topCompany(monthJobData, 'completedJobs')
+const companyRevenueGraphData = parseYearData(
+  newData[0].data[2019],
+  'companyIncome'
+)
 const overallRevenueGraphData = overall.revenue
 
 // TODO: use loops to refactor redundant code
@@ -75,6 +86,7 @@ fillGraph(
   'overall-revenue-graph-tr',
   overallRevenueGraphData
 )
+console.log(overallRevenueGraphData)
 graphBtn(
   '#job-overview-radio',
   '#job-overview-graph',
@@ -90,7 +102,9 @@ graphBtn(
   signupGraphData
 )
 
-createFilter('#company-filter', info)
+createFilter('#company-filter', info, `- All Companies -`)
+createFilter('#top-company-job-filter', info, `Total Jobs Completed`)
+createFilter('#top-company-revenue-filter', info, `Total Income`)
 
 console.log(info)
 fillInformation('#submitted-jobs', overall.submittedJobs)
@@ -100,3 +114,6 @@ fillInformation('#cancelled-jobs', overall.cancelledJobs)
 
 changeTableDate('#date-input')
 filterCompany('#company-filter')
+
+const result = parseYearData(newData[0].data[2019])
+console.log(result)

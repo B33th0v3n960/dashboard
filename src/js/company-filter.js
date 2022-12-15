@@ -1,8 +1,9 @@
 import { newData } from './data/new-data.js'
 import { fillInformation } from './card.js'
+import { findObjectByName } from './data/new-data.js'
 
-export function createFilter(id, companies) {
-  let output = `<option selected>- All Companies -</option>`
+export function createFilter(id, companies, defaultInput) {
+  let output = `<option selected>${defaultInput}</option>`
   const filter = document.querySelector(id)
 
   for (let company of companies) {
@@ -24,14 +25,4 @@ export function filterCompany(id) {
     fillInformation('#completed-jobs', info.completedJobs)
     fillInformation('#cancelled-jobs', info.cancelledJobs)
   })
-}
-
-function findObjectByName(name, objects) {
-  for (const obj of objects) {
-    if (obj.companyName === name) {
-      return obj
-    }
-  }
-
-  return null
 }

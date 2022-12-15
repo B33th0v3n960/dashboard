@@ -165,3 +165,13 @@ export const overall = {
   completedJobs: getRandomIntInclusive(700, 1500),
   cancelledJobs: getRandomIntInclusive(0, 50),
 }
+
+export function findObjectByName(name, objects) {
+  for (const obj of objects) {
+    if (obj.companyName === name) {
+      return obj
+    }
+  }
+
+  return null
+}
