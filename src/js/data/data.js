@@ -98,6 +98,7 @@ const year = [
   'December',
 ]
 
+//TODO: re-organise data - remove unuse data
 export const data = {
   companyA: {
     job: {

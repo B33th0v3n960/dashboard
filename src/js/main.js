@@ -1,42 +1,50 @@
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
-import { data } from './data.js'
-import { filterCompany } from './company-filter.js'
+import { filterCompany, createFilter } from './company-filter.js'
 import { fillInformation } from './card.js'
 import { fillGraph } from './graph/graph.js'
 import { graphBtn } from './graph/graph-btn.js'
 import { fillTable } from './table/table.js'
-import { changeTableDate } from './table/job-date.js'
+import { changeTableDate } from './date.js'
 import { topCompany } from './graph/top-company.js'
+import {
+  newData,
+  graphData,
+  year,
+  layoutData,
+  overall,
+} from './data/new-data.js'
+import { parseCompletedJobs, parseApiGraph } from './data/parse-data.js'
 
-const info = data.companyA
-const job = info.job
-const api = info.api
-const jobGraphData = info.jobGraphData
-const signupGraphData = info.signupGraphData
+const info = newData
+const jobGraphData = graphData.jobGraphData
+const signupGraphData = graphData.signupGraphData
 
 const now = new Date()
-const month = `${now.getFullYear()}-${now.getMonth() + 1}`
-const monthJobData = job[month]
-const monthApiData = api[month]
-const companyJobGraphData = topCompany(monthJobData.data, 'completedJobs')
-const companyRevenueGraphData = topCompany(monthJobData.data, 'companyIncome')
-const overallRevenueGraphData = info.overallRevenueGraphData
+const month = now.getMonth()
+const fullYear = now.getFullYear()
+const monthJobData = parseCompletedJobs(info, fullYear, year[month])
+const monthApiData = parseApiGraph(info, fullYear, year[month])
+const companyJobGraphData = topCompany(monthJobData, 'completedJobs')
+const companyRevenueGraphData = topCompany(monthJobData, 'companyIncome')
+const overallRevenueGraphData = overall.revenue
 
+// TODO: use loops to refactor redundant code
 fillTable(
   '#job-table',
   '#job-thead',
   '#job-tbody',
-  monthJobData.header,
-  monthJobData.data
+  layoutData.jobHeader,
+  monthJobData
 )
 fillTable(
   '#api-table',
   '#api-thead',
   '#api-tbody',
-  monthApiData.header,
-  monthApiData.data
+  layoutData.apiHeader,
+  monthApiData
 )
+
 fillGraph(
   '#job-overview-graph',
   '#job-legend',
@@ -67,7 +75,6 @@ fillGraph(
   'overall-revenue-graph-tr',
   overallRevenueGraphData
 )
-
 graphBtn(
   '#job-overview-radio',
   '#job-overview-graph',
@@ -83,15 +90,13 @@ graphBtn(
   signupGraphData
 )
 
-changeTableDate('#date-input', 'companyA')
+createFilter('#company-filter', info)
+
+console.log(info)
+fillInformation('#submitted-jobs', overall.submittedJobs)
+fillInformation('#in-prgress-jobs', overall.inProgressJobs)
+fillInformation('#completed-jobs', overall.completedJobs)
+fillInformation('#cancelled-jobs', overall.cancelledJobs)
+
+changeTableDate('#date-input')
 filterCompany('#company-filter')
-
-fillInformation('#submitted-jobs', info.submittedJobs)
-fillInformation('#in-prgress-jobs', info.inProgressJobs)
-fillInformation('#completed-jobs', info.completedJobs)
-fillInformation('#cancelled-jobs', info.cancelledJobs)
-
-fillInformation(
-  '#top-company-job-total',
-  `Total: ${companyJobGraphData[0].value}`
-)
