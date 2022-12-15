@@ -5,6 +5,10 @@
 
   .overview-grid {
     grid-template-columns: repeat(2, 1fr);
+    h3 {
+      margin-right: 30px;
+      justify-self: flex-end;
+    }
   }
 
   .title-layout {

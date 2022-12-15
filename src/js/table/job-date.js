@@ -23,25 +23,25 @@ export function changeTableDate(id, company) {
       alertPlaceholder.append(wrapper)
     }
 
-    if (monthJobData) {
-      fillTable(
-        '#job-table',
-        '#job-thead',
-        '#job-tbody',
-        monthJobData.header,
-        monthJobData.data
-      )
-      fillTable(
-        '#api-table',
-        '#api-thead',
-        '#api-tbody',
-        monthApiData.header,
-        monthApiData.data
-      )
-    } else
+    if (!(monthJobData && monthApiData))
       alert(
         'The date you have chosen does is not available in our data base',
         'success'
       )
+
+    fillTable(
+      '#job-table',
+      '#job-thead',
+      '#job-tbody',
+      monthJobData.header,
+      monthJobData.data
+    )
+    fillTable(
+      '#api-table',
+      '#api-thead',
+      '#api-tbody',
+      monthApiData.header,
+      monthApiData.data
+    )
   })
 }

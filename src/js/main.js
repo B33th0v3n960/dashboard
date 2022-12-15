@@ -19,7 +19,6 @@ const now = new Date()
 const month = `${now.getFullYear()}-${now.getMonth() + 1}`
 const monthJobData = job[month]
 const monthApiData = api[month]
-console.log(monthApiData)
 const companyJobGraphData = topCompany(monthJobData.data, 'completedJobs')
 const companyRevenueGraphData = topCompany(monthJobData.data, 'companyIncome')
 const overallRevenueGraphData = info.overallRevenueGraphData
@@ -38,7 +37,6 @@ fillTable(
   monthApiData.header,
   monthApiData.data
 )
-
 fillGraph(
   '#job-overview-graph',
   '#job-legend',
@@ -92,3 +90,8 @@ fillInformation('#submitted-jobs', info.submittedJobs)
 fillInformation('#in-prgress-jobs', info.inProgressJobs)
 fillInformation('#completed-jobs', info.completedJobs)
 fillInformation('#cancelled-jobs', info.cancelledJobs)
+
+fillInformation(
+  '#top-company-job-total',
+  `Total: ${companyJobGraphData[0].value}`
+)

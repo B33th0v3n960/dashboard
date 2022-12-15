@@ -3,7 +3,6 @@ import { layout } from './graph-layout.js'
 export function fillGraph(graphId, legendId, trId, data) {
   const graph = document.querySelector(graphId)
   const legend = document.querySelector(legendId)
-  console.log('data', data)
   const maxVal = getMax(data)
   const step = findStep(maxVal)
   const legendArr = [...createLegendsArr(maxVal, step)]
@@ -89,7 +88,8 @@ function findStep(maxVal) {
   else if (maxVal <= 100) return 50
   else if (maxVal <= 500) return 100
   else if (maxVal <= 1000) return 200
-  return 1000
+  else if (maxVal <= 10000) return 1000
+  return 5000
 }
 
 function createLegendsArr(maxVal, step) {
