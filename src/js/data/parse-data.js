@@ -1,8 +1,9 @@
-import { year } from './new-data.js'
+import { year, findObjectByName } from './new-data.js'
 
 export function parseCompletedJobs(data, year, month) {
   const output = []
   for (let company of data) {
+    if (!company.data[year]) return undefined
     output.push({
       companyId: company.companyId,
       companyName: company.companyName,
@@ -20,6 +21,7 @@ export function parseCompletedJobs(data, year, month) {
 export function parseApiGraph(data, year, month) {
   const output = []
   for (let company of data) {
+    if (!company.data[year]) return undefined
     output.push({
       companyName: company.companyName,
       map: company.data[year][month].api.map,
@@ -36,9 +38,43 @@ export function parseApiGraph(data, year, month) {
 export function parseYearData(data, key) {
   const output = []
   for (let month of year) {
-    console.log(month)
-    console.log(data[month])
     output.push({ barLegend: month, value: data[month].job[key] })
   }
+  return output
+}
+
+export function formatData(companies, year) {
+  const output = []
+
+  for (let company of companies) {
+    output.push({
+      companyName: company.companyName,
+      job: parseYearData(company.data[year], 'completedJobs'),
+      income: parseYearData(company.data[year], 'zoomRevenue'),
+    })
+  }
+
+  return output
+}
+
+function companyArr(companies) {
+  const output = []
+  for (let company of companies) output.push(company.companyName)
+  return output
+}
+
+export function getTotal(companies, yearInput, key) {
+  const output = []
+
+  const companyArray = [...companyArr(companies)]
+  for (let month of year) {
+    let total = 0
+    for (let company of companyArray)
+      total += findObjectByName(company, companies).data[yearInput][month].job[
+        key
+      ]
+    output.push({ barLegend: month, value: total })
+  }
+
   return output
 }

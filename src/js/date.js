@@ -14,6 +14,7 @@ export function changeTableDate(id) {
     const month = new Date(input.value).getMonth()
     const monthJobData = parseCompletedJobs(info, fullYear, year[month])
     const monthApiData = parseApiGraph(info, fullYear, year[month])
+    console.log(monthApiData, monthJobData, input.value)
 
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 
