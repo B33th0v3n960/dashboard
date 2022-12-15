@@ -16,6 +16,9 @@ function generateJobData(num) {
       companyId: getRandomIntInclusive(20, 500),
       companyName: `company ${randomLetter()}`,
       completedJobs: getRandomIntInclusive(20, 500),
+      totalEmails: getRandomIntInclusive(20, 50),
+      companyIncome: getRandomIntInclusive(50, 300),
+      zoomRevenue: getRandomIntInclusive(20, 400),
       totalSMS: getRandomIntInclusive(20, 500),
     })
   return output
@@ -38,7 +41,7 @@ function generateApiData(num) {
 function generateGraphData(arr, min, max) {
   const output = []
   for (let i of arr) {
-    output.push({ time: i, value: getRandomIntInclusive(min, max) })
+    output.push({ barLegend: i, value: getRandomIntInclusive(min, max) })
   }
   return output
 }
@@ -103,6 +106,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(41)],
@@ -112,6 +118,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(45)],
@@ -121,6 +130,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(38)],
@@ -130,22 +142,63 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(23)],
       },
     },
     api: {
-      header: {
-        companyName: 'Company Name',
-        map: 'Map',
-        direction: 'Direction',
-        distanceMatrix: 'Distance Matrix',
-        georecorder: 'Georecorder',
-        place: 'Place',
-      },
+      '2022-12': {
+        header: {
+          companyName: 'Company Name',
+          map: 'Map',
+          direction: 'Direction',
+          distanceMatrix: 'Distance Matrix',
+          georecorder: 'Georecorder',
+          place: 'Place',
+        },
 
-      data: [...generateApiData(21)],
+        data: [...generateApiData(21)],
+      },
+      '2022-11': {
+        header: {
+          companyName: 'Company Name',
+          map: 'Map',
+          direction: 'Direction',
+          distanceMatrix: 'Distance Matrix',
+          georecorder: 'Georecorder',
+          place: 'Place',
+        },
+
+        data: [...generateApiData(21)],
+      },
+      '2022-10': {
+        header: {
+          companyName: 'Company Name',
+          map: 'Map',
+          direction: 'Direction',
+          distanceMatrix: 'Distance Matrix',
+          georecorder: 'Georecorder',
+          place: 'Place',
+        },
+
+        data: [...generateApiData(21)],
+      },
+      '2022-09': {
+        header: {
+          companyName: 'Company Name',
+          map: 'Map',
+          direction: 'Direction',
+          distanceMatrix: 'Distance Matrix',
+          georecorder: 'Georecorder',
+          place: 'Place',
+        },
+
+        data: [...generateApiData(21)],
+      },
     },
     jobGraphData: {
       today: [...generateGraphData(day, 0, 10)],
@@ -158,6 +211,7 @@ export const data = {
       week: [...generateGraphData(week, 0, 20)],
       month: [...generateGraphData(month, 0, 50)],
     },
+    overallRevenueGraphData: [...generateGraphData(year, 0, 100)],
     submittedJobs: getRandomIntInclusive(700, 1500),
     inProgressJobs: getRandomIntInclusive(700, 1500),
     completedJobs: getRandomIntInclusive(700, 1500),
@@ -173,6 +227,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(41)],
@@ -182,6 +239,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(45)],
@@ -191,6 +251,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(38)],
@@ -200,6 +263,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(23)],
@@ -224,6 +290,21 @@ export const data = {
       year: [...generateGraphData(year, 0, 50)],
     },
     signupGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    companyJobsGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    companyRevenueGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    overallRevenueGraphData: {
       today: [...generateGraphData(day, 0, 10)],
       week: [...generateGraphData(week, 0, 20)],
       month: [...generateGraphData(month, 0, 50)],
@@ -243,6 +324,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(41)],
@@ -252,6 +336,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(45)],
@@ -261,6 +348,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(38)],
@@ -270,6 +360,9 @@ export const data = {
           companyId: 'Company ID',
           companyName: 'Company Name',
           completedJobs: 'Completed Jobs',
+          companyIncome: 'Company Income',
+          zoomRevenue: 'Zoom Revenue',
+          totalEmails: 'Total Emails',
           totalSMS: 'Total SMS',
         },
         data: [...generateJobData(23)],
@@ -294,6 +387,21 @@ export const data = {
       year: [...generateGraphData(year, 0, 50)],
     },
     signupGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    companyJobsGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    companyRevenueGraphData: {
+      today: [...generateGraphData(day, 0, 10)],
+      week: [...generateGraphData(week, 0, 20)],
+      month: [...generateGraphData(month, 0, 50)],
+    },
+    overallRevenueGraphData: {
       today: [...generateGraphData(day, 0, 10)],
       week: [...generateGraphData(week, 0, 20)],
       month: [...generateGraphData(month, 0, 50)],

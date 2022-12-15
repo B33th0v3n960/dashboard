@@ -1,12 +1,13 @@
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 import { data } from './data.js'
-import { fillTable } from './table.js'
-import { fillGraph } from './graph.js'
-import { graphBtn } from './graph-btn.js'
-import { changeTableDate } from './job-date.js'
 import { filterCompany } from './company-filter.js'
 import { fillInformation } from './card.js'
+import { fillGraph } from './graph/graph.js'
+import { graphBtn } from './graph/graph-btn.js'
+import { fillTable } from './table/table.js'
+import { changeTableDate } from './table/job-date.js'
+import { topCompany } from './graph/top-company.js'
 
 const info = data.companyA
 const job = info.job
@@ -17,6 +18,10 @@ const signupGraphData = info.signupGraphData
 const now = new Date()
 const month = `${now.getFullYear()}-${now.getMonth() + 1}`
 const monthJobData = job[month]
+const monthApiData = api[month]
+const companyJobGraphData = topCompany(monthJobData.data, 'completedJobs')
+const companyRevenueGraphData = topCompany(monthJobData.data, 'companyIncome')
+const overallRevenueGraphData = info.overallRevenueGraphData
 
 fillTable(
   '#job-table',
@@ -25,8 +30,13 @@ fillTable(
   monthJobData.header,
   monthJobData.data
 )
-fillTable('#api-table', '#api-thead', '#api-tbody', api.header, api.data)
-
+fillTable(
+  '#api-table',
+  '#api-thead',
+  '#api-tbody',
+  monthApiData.header,
+  monthApiData.data
+)
 fillGraph(
   '#job-overview-graph',
   '#job-legend',
@@ -38,6 +48,24 @@ fillGraph(
   '#signup-legend',
   'sign-up-graph-tr',
   signupGraphData.today
+)
+fillGraph(
+  '#top-company-job-graph',
+  '#top-company-job-legend',
+  'top-company-job-graph-tr',
+  companyJobGraphData
+)
+fillGraph(
+  '#top-company-revenue-graph',
+  '#top-company-revenue-legend',
+  'top-company-revenue-graph-tr',
+  companyRevenueGraphData
+)
+fillGraph(
+  '#overall-revenue-graph',
+  '#overall-revenue-legend',
+  'overall-revenue-graph-tr',
+  overallRevenueGraphData
 )
 
 graphBtn(
@@ -63,6 +91,7 @@ fillInformation('#in-prgress-jobs', info.inProgressJobs)
 fillInformation('#completed-jobs', info.completedJobs)
 fillInformation('#cancelled-jobs', info.cancelledJobs)
 
-fillInformation('#active-customers', info.activeCustomers)
-fillInformation('#inactive-customers', info.inActiveCustomers)
-fillInformation('#revenue', `$${info.revenue}`)
+fillInformation(
+  '#top-company-job-total',
+  `Total: ${companyJobGraphData[0].value}`
+)

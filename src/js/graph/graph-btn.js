@@ -1,5 +1,4 @@
 import { fillGraph } from './graph.js'
-import { layout } from './graph-layout.js'
 
 export function graphBtn(id, graphId, legendId, trId, data) {
   const formGroup = document.querySelector(id).children

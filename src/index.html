@@ -73,11 +73,15 @@
     </div>
 
     <main class="m-3">
-      <div class="mb-2 title-layout">
-        <h1 class="fs-2">Dashboard</h1>
+      <div id="liveAlertPlaceholder"></div>
+      <div class="mb-2 grid-2-1">
+        <div class="grid-2-1 me-3">
+          <h1 class="fs-2">Dashboard</h1>
+          <input type="month" class="form-control col m-2" id="date-input" />
+        </div>
         <select
           id="company-filter"
-          class="form-select form-select-sm my-2"
+          class="form-select form-select-sm mx-2 my-2"
           aria-label="Filter for companies"
         >
           <option selected>- All Companies -</option>
@@ -91,10 +95,8 @@
         <section class="bg-light rounded">
           <div class="row m-3 ms-1">
             <h2 class="fs-4 col">Completed Jobs</h2>
-
-            <input type="month" class="form-control col" id="date-input" />
           </div>
-          <div id="liveAlertPlaceholder"></div>
+
           <div class="overflow-y data">
             <table id="job-table" class="table table-striped m-0">
               <thead id="job-thead" class="fw-semibold"></thead>
@@ -170,45 +172,62 @@
         </section>
       </div>
 
-      <section class="mb-4 text-secondary card-grid">
-        <div class="bg-light p-3 rounded">
-          <div class="d-flex align-items-center">
-            <span class="custom-bg-green rounded-circle p-2 icon">
-              <svg class="icon fill-white">
-                <use xlink:href="./img/sprite.svg#users" />
-              </svg>
-            </span>
-            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
-              Active Customers
-            </h2>
-          </div>
-          <p id="active-customers" class="fs-1 text-center"></p>
+      <section class="bg-light rounded mb-4">
+        <div class="p-3 overview-grid border-bottom">
+          <h2 class="fs-3 text-uppercase m-0 text-nowrap">
+            Top 10 Company Completed Jobs
+          </h2>
+          <h3 id="top-company-job-total" class="fs-4 fw-normal"></h3>
         </div>
 
-        <div class="bg-light p-3 rounded">
-          <div class="d-flex align-items-center">
-            <span class="custom-bg-red rounded-circle p-2 icon">
-              <svg class="icon fill-white">
-                <use xlink:href="./img/sprite.svg#users" />
-              </svg>
-            </span>
-            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">
-              Inactive Customers
-            </h2>
-          </div>
-          <p id="inactive-customers" class="fs-1 text-center"></p>
+        <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
+          <div
+            id="top-company-job-legend"
+            class="me-3 d-flex flex-column justify-content-between legend"
+          ></div>
+
+          <table
+            id="top-company-job-graph"
+            class="table table-bordered"
+          ></table>
+        </div>
+      </section>
+
+      <section class="bg-light rounded mb-4">
+        <div class="p-3 overview-grid border-bottom">
+          <h2 class="fs-3 text-uppercase m-0 text-nowrap">
+            Top 10 Company Revenue
+          </h2>
         </div>
 
-        <div class="bg-light p-3 rounded">
-          <div class="d-flex align-items-center">
-            <span class="custom-bg-red rounded-circle p-2 icon">
-              <svg class="icon fill-white">
-                <use xlink:href="./img/sprite.svg#euro" />
-              </svg>
-            </span>
-            <h2 class="d-inline fs-3 fw-normal my-auto ms-3">Today Revenue</h2>
-          </div>
-          <p id="revenue" class="fs-1 text-center"></p>
+        <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
+          <div
+            id="top-company-revenue-legend"
+            class="me-3 d-flex flex-column justify-content-between legend"
+          ></div>
+
+          <table
+            id="top-company-revenue-graph"
+            class="table table-bordered"
+          ></table>
+        </div>
+      </section>
+
+      <section class="bg-light rounded mb-4">
+        <div class="p-3 overview-grid border-bottom">
+          <h2 class="fs-3 text-uppercase m-0 text-nowrap">Overall Revenue</h2>
+        </div>
+
+        <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
+          <div
+            id="overall-revenue-legend"
+            class="me-3 d-flex flex-column justify-content-between legend"
+          ></div>
+
+          <table
+            id="overall-revenue-graph"
+            class="table table-bordered"
+          ></table>
         </div>
       </section>
 
@@ -350,7 +369,7 @@
       </section>
 
       <section class="bg-light rounded mb-4 pt-1">
-        <h2 class="m-3 fs-3">Last 30 days Google API Usage Report</h2>
+        <h2 class="m-3 fs-3">Google API Usage Report</h2>
 
         <div class="overflow-y p-0 data">
           <table id="api-table" class="table table-striped m-0">
