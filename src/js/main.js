@@ -18,6 +18,8 @@ const signupGraphData = info.signupGraphData
 const now = new Date()
 const month = `${now.getFullYear()}-${now.getMonth() + 1}`
 const monthJobData = job[month]
+const monthApiData = api[month]
+console.log(monthApiData)
 const companyJobGraphData = topCompany(monthJobData.data, 'completedJobs')
 const companyRevenueGraphData = topCompany(monthJobData.data, 'companyIncome')
 const overallRevenueGraphData = info.overallRevenueGraphData
@@ -29,7 +31,13 @@ fillTable(
   monthJobData.header,
   monthJobData.data
 )
-fillTable('#api-table', '#api-thead', '#api-tbody', api.header, api.data)
+fillTable(
+  '#api-table',
+  '#api-thead',
+  '#api-tbody',
+  monthApiData.header,
+  monthApiData.data
+)
 
 fillGraph(
   '#job-overview-graph',
@@ -59,7 +67,7 @@ fillGraph(
   '#overall-revenue-graph',
   '#overall-revenue-legend',
   'overall-revenue-graph-tr',
-  overallRevenueGraphData.today
+  overallRevenueGraphData
 )
 
 graphBtn(

@@ -3,9 +3,11 @@ import { data } from '../data.js'
 
 export function changeTableDate(id, company) {
   const job = data[company].job
+  const api = data[company].api
   const input = document.querySelector(id)
   input.addEventListener('input', () => {
     const monthJobData = job[input.value]
+    const monthApiData = api[input.value]
 
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 
@@ -21,7 +23,7 @@ export function changeTableDate(id, company) {
       alertPlaceholder.append(wrapper)
     }
 
-    if (monthJobData)
+    if (monthJobData) {
       fillTable(
         '#job-table',
         '#job-thead',
@@ -29,7 +31,14 @@ export function changeTableDate(id, company) {
         monthJobData.header,
         monthJobData.data
       )
-    else
+      fillTable(
+        '#api-table',
+        '#api-thead',
+        '#api-tbody',
+        monthApiData.header,
+        monthApiData.data
+      )
+    } else
       alert(
         'The date you have chosen does is not available in our data base',
         'success'

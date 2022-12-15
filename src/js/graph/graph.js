@@ -86,7 +86,10 @@ function findStep(maxVal) {
   if (maxVal <= 10) return 1
   else if (maxVal < 30) return 5
   else if (maxVal <= 50) return 10
-  return 50
+  else if (maxVal <= 100) return 50
+  else if (maxVal <= 500) return 100
+  else if (maxVal <= 1000) return 200
+  return 1000
 }
 
 function createLegendsArr(maxVal, step) {
