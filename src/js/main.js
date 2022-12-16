@@ -17,13 +17,13 @@ import {
 import {
   parseCompletedJobs,
   parseApiGraph,
-  parseYearData,
   formatData,
   getTotal,
   lineGraphData,
   totalLine,
+  overallRevenueLineData,
 } from './data/parse-data.js'
-import { createLineGraph } from './graph/line-graph.js'
+import { createLineGraph, createRevenueLine } from './graph/line-graph.js'
 
 const info = newData
 const jobGraphData = graphData.jobGraphData
@@ -64,12 +64,6 @@ fillGraph(
   '#signup-legend',
   'sign-up-graph-tr',
   signupGraphData.today
-)
-fillGraph(
-  '#overall-revenue-graph',
-  '#overall-revenue-legend',
-  'overall-revenue-graph-tr',
-  overallRevenueGraphData[fullYear]
 )
 console.log(overallRevenueGraphData)
 graphBtn(
@@ -177,21 +171,28 @@ filter(`#company-income-year-filter`, (value) => {
   }
 })
 
+const overallLineData = overallRevenueLineData(
+  overallRevenueGraphData,
+  fullYear
+)
+createRevenueLine('overall-revenue-line', overallLineData, info)
+
 filter(`#overall-revenue-year-filter`, (value) => {
-  console.log(overallRevenueGraphData[value])
   if (value === 'default') {
-    fillGraph(
-      '#overall-revenue-graph',
-      '#overall-revenue-legend',
-      'overall-revenue-graph-tr',
-      overallRevenueGraphData[fullYear]
+    const overallLineData = overallRevenueLineData(
+      overallRevenueGraphData,
+      fullYear
     )
+    const graph = document.querySelector('#overall-revenue-line')
+    graph.innerHTML = ''
+    createRevenueLine('overall-revenue-line', overallLineData, info)
   } else {
-    fillGraph(
-      '#overall-revenue-graph',
-      '#overall-revenue-legend',
-      'overall-revenue-graph-tr',
-      overallRevenueGraphData[value]
+    const overallLineData = overallRevenueLineData(
+      overallRevenueGraphData,
+      value
     )
+    const graph = document.querySelector('#overall-revenue-line')
+    graph.innerHTML = ''
+    createRevenueLine('overall-revenue-line', overallLineData, info)
   }
 })

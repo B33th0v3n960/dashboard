@@ -1,3 +1,5 @@
+import { overall } from '../data/new-data'
+
 export function createLineGraph(id, data, info, totalData) {
   anychart.onDocumentReady(() => {
     const dataSet = anychart.data.set(data)
@@ -55,6 +57,19 @@ export function createLineGraph(id, data, info, totalData) {
 
     chart.container(id)
 
+    chart.draw()
+  })
+}
+
+export function createRevenueLine(id, data, info) {
+  anychart.onDocumentReady(() => {
+    const dataSet = anychart.data.set(data)
+    const lineData = dataSet.mapAs({ x: 0, value: 1 })
+    const chart = anychart.line()
+    const series = chart.line(lineData)
+    series.name('Overall Revenue')
+
+    chart.container(id)
     chart.draw()
   })
 }
