@@ -181,36 +181,18 @@
           <h2 class="fs-3 text-uppercase m-0 text-nowrap">
             Top 10 Company Completed Jobs
           </h2>
-          <div class="grid-2-1">
-            <input
-              type="number"
-              placeholder="YYYY"
-              min="2019"
-              max="2022"
-              class="form-control col m-2"
-              id="date-input"
-            />
-            <select
-              id="top-company-job-filter"
-              class="form-select form-select-sm mx-2 my-2 w-50"
-              aria-label="Filter for companies"
-            ></select>
-          </div>
+          <input
+            type="number"
+            placeholder="YYYY"
+            min="2019"
+            max="2022"
+            class="form-control col m-2 w-50 ms-auto"
+            id="date-input"
+          />
         </div>
 
         <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
-          <div id="top-company-job"></div>
-
-          <!-- <div
-            id="top-company-job-legend"
-            class="me-3 d-flex flex-column justify-content-between legend"
-          ></div>
-
-          <div class="top-company-job"></div>
-          <table
-            id="top-company-job-graph"
-            class="table table-bordered"
-          ></table> -->
+          <div id="top-company-job" class="line-graph"></div>
         </div>
       </section>
 
@@ -220,33 +202,18 @@
             Top 10 Company Income
           </h2>
 
-          <div class="grid-2-1">
-            <input
-              type="number"
-              placeholder="YYYY"
-              min="2019"
-              max="2022"
-              class="form-control col m-2"
-              id="date-input"
-            />
-            <select
-              id="top-company-revenue-filter"
-              class="form-select form-select-sm mx-2 my-2 w-50"
-              aria-label="Filter for companies"
-            ></select>
-          </div>
+          <input
+            type="number"
+            placeholder="YYYY"
+            min="2019"
+            max="2022"
+            class="form-control col m-2 w-50 ms-auto"
+            id="date-input"
+          />
         </div>
 
         <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
-          <div
-            id="top-company-revenue-legend"
-            class="me-3 d-flex flex-column justify-content-between legend"
-          ></div>
-
-          <table
-            id="top-company-revenue-graph"
-            class="table table-bordered"
-          ></table>
+          <div id="company-income-line" class="line-graph"></div>
         </div>
       </section>
 

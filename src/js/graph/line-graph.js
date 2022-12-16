@@ -1,6 +1,7 @@
-export function createLineGraph(id, data, key, info) {
+export function createLineGraph(id, data, info, totalData) {
   anychart.onDocumentReady(() => {
     const dataSet = anychart.data.set(data)
+    const totalLineData = anychart.data.set(totalData)
 
     const lineDataSet = []
     for (let company of info) {
@@ -35,6 +36,9 @@ export function createLineGraph(id, data, key, info) {
     const tenthSeries = chart.line(lineDataSet[9].data)
     tenthSeries.name(lineDataSet[9].name)
 
+    const total = chart.line(totalLineData)
+    total.name('total')
+
     firstSeries.hovered().markers().type('circle').size(4)
     secondSeries.hovered().markers().type('circle').size(4)
     thirdSeries.hovered().markers().type('circle').size(4)
@@ -49,14 +53,8 @@ export function createLineGraph(id, data, key, info) {
 
     chart.legend().enabled(true)
 
-    // add a title
-    // chart.title('graph')
-
-    // specify where to display the chart
     chart.container(id)
 
-    // draw the resulting chart
     chart.draw()
-    console.log('here')
   })
 }

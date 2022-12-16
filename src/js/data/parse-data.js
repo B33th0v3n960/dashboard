@@ -92,3 +92,12 @@ export function lineGraphData(data, key, yearInput) {
   console.log(output)
   return output
 }
+
+export function totalLine(data) {
+  const output = []
+  for (let month of data) {
+    const cache = [month.barLegend, month.value]
+    output.push(cache)
+  }
+  return output
+}
