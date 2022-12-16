@@ -1,4 +1,3 @@
-import { changeTableDate } from '../date.js'
 import { year, findObjectByName } from './new-data.js'
 
 export function parseCompletedJobs(data, year, month) {
@@ -83,14 +82,12 @@ export function getTotal(companies, yearInput, key) {
 export function lineGraphData(data, key, yearInput) {
   const output = []
   for (let month of year) {
-    console.log(month)
     const cache = [month]
     for (let company of data) {
       cache.push(company.data[yearInput][month].job[key])
     }
     output.push(cache)
   }
-  console.log(output)
   return output
 }
 
@@ -104,7 +101,6 @@ export function totalLine(data) {
 }
 
 export function overallRevenueLineData(data, yearInput) {
-  console.log('test', data[yearInput])
   const output = []
   const currentData = data[yearInput]
   for (let month of currentData) {

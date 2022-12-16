@@ -7,13 +7,11 @@ export function createLineGraph(id, data, info, totalData) {
 
     const lineDataSet = []
     for (let company of info) {
-      console.log(info.indexOf(company))
       lineDataSet.push({
         name: company.companyName,
         data: dataSet.mapAs({ x: 0, value: info.indexOf(company) }),
       })
     }
-    console.log('dataSet: ', lineDataSet)
 
     const chart = anychart.line()
 

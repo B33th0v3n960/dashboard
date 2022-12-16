@@ -65,7 +65,6 @@ fillGraph(
   'sign-up-graph-tr',
   signupGraphData.today
 )
-console.log(overallRevenueGraphData)
 graphBtn(
   '#job-overview-radio',
   '#job-overview-graph',
@@ -100,7 +99,6 @@ createYearFilter(
 
 changeTableDate('#date-input')
 
-console.log(info)
 fillInformation('#submitted-jobs', overall.submittedJobs)
 fillInformation('#in-prgress-jobs', overall.inProgressJobs)
 fillInformation('#completed-jobs', overall.completedJobs)
@@ -120,12 +118,6 @@ filter('#company-filter', (value) => {
     fillInformation('#cancelled-jobs', info.cancelledJobs)
   }
 })
-
-const result = formatData(info, 2021)
-console.log(result)
-console.log(info)
-console.log('total', companyJobGraphData)
-console.log('process data:', totalLine(companyJobGraphData))
 
 const jobLineTotal = totalLine(companyJobGraphData)
 const incomeLineTotal = totalLine(companyRevenueGraphData)
