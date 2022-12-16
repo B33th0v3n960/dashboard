@@ -78,3 +78,17 @@ export function getTotal(companies, yearInput, key) {
 
   return output
 }
+
+export function lineGraphData(data, key, yearInput) {
+  const output = []
+  for (let month of year) {
+    console.log(month)
+    const cache = [month]
+    for (let company of data) {
+      cache.push(company.data[yearInput][month].job[key])
+    }
+    output.push(cache)
+  }
+  console.log(output)
+  return output
+}

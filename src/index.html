@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./scss/styles.scss" />
+    <script
+      src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"
+      defer
+    ></script>
     <script src="./js/main.js" type="module" defer></script>
     <title>Dashboard</title>
   </head>
@@ -195,7 +199,9 @@
         </div>
 
         <div class="d-flex overflow-x mt-2 p-3 pe-5 graph">
-          <div
+          <div id="top-company-job"></div>
+
+          <!-- <div
             id="top-company-job-legend"
             class="me-3 d-flex flex-column justify-content-between legend"
           ></div>
@@ -204,7 +210,7 @@
           <table
             id="top-company-job-graph"
             class="table table-bordered"
-          ></table>
+          ></table> -->
         </div>
       </section>
 

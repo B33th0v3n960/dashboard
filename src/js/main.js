@@ -20,7 +20,9 @@ import {
   parseYearData,
   formatData,
   getTotal,
+  lineGraphData,
 } from './data/parse-data.js'
+import { createLineGraph } from './graph/line-graph.js'
 
 const info = newData
 const jobGraphData = graphData.jobGraphData
@@ -62,12 +64,12 @@ fillGraph(
   'sign-up-graph-tr',
   signupGraphData.today
 )
-fillGraph(
-  '#top-company-job-graph',
-  '#top-company-job-legend',
-  'top-company-job-graph-tr',
-  companyJobGraphData
-)
+// fillGraph(
+//   '#top-company-job-graph',
+//   '#top-company-job-legend',
+//   'top-company-job-graph-tr',
+//   companyJobGraphData
+// )
 fillGraph(
   '#top-company-revenue-graph',
   '#top-company-revenue-legend',
@@ -163,4 +165,7 @@ filterCompany('#top-company-revenue-filter', (value) => {
 const result = formatData(info, 2021)
 console.log(result)
 
-const final = getTotal(info, 2021, 'completedJobs')
+const final = lineGraphData(info, 'completedJobs', 2021)
+console.log(info)
+
+createLineGraph('top-company-job', final, 'completedJobs', info)
