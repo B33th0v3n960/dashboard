@@ -50,6 +50,20 @@ export const year = [
   'December',
 ]
 
+class Company {
+  constructor(name, id) {
+    this.companyName = name
+    this.companyId = id
+    this.data = generateYearsData([
+      2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013,
+    ])
+    this.submittedJobs = getRandomIntInclusive(700, 1500)
+    this.inProgressJobs = getRandomIntInclusive(700, 1500)
+    this.completedJobs = getRandomIntInclusive(700, 1500)
+    this.cancelledJobs = getRandomIntInclusive(0, 50)
+  }
+}
+
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min)
   max = Math.floor(max)
@@ -101,26 +115,20 @@ function generateYearsData(years) {
   return output
 }
 
-class Company {
-  constructor(name, id) {
-    this.companyName = name
-    this.companyId = id
-    this.data = generateYearsData([
-      2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013,
-    ])
-    this.submittedJobs = getRandomIntInclusive(700, 1500)
-    this.inProgressJobs = getRandomIntInclusive(700, 1500)
-    this.completedJobs = getRandomIntInclusive(700, 1500)
-    this.cancelledJobs = getRandomIntInclusive(0, 50)
-  }
-}
-
 function createDatabase(num) {
   const output = []
   for (let i = 0; i < num; i++) {
     output.push(
       new Company(`company ${randomLetter()}`, getRandomIntInclusive(0, num))
     )
+  }
+  return output
+}
+
+function yearsData(years) {
+  const output = {}
+  for (let currentYear of years) {
+    output[currentYear] = [...generateGraphData(year, 0, 100)]
   }
   return output
 }
@@ -139,7 +147,6 @@ export const graphData = {
     month: [...generateGraphData(month, 0, 50)],
   },
 }
-
 export const layoutData = {
   jobHeader: {
     companyId: 'Company ID',
@@ -159,15 +166,6 @@ export const layoutData = {
     place: 'Place',
   },
 }
-
-function yearsData(years) {
-  const output = {}
-  for (let currentYear of years) {
-    output[currentYear] = [...generateGraphData(year, 0, 100)]
-  }
-  return output
-}
-
 export const overall = {
   revenue: yearsData([2022, 2021, 2020, 2019, 2018, 2017]),
   submittedJobs: getRandomIntInclusive(700, 1500),
@@ -175,7 +173,6 @@ export const overall = {
   completedJobs: getRandomIntInclusive(700, 1500),
   cancelledJobs: getRandomIntInclusive(0, 50),
 }
-
 export function findObjectByName(name, objects) {
   for (const obj of objects) {
     if (obj.companyName === name) {

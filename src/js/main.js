@@ -1,7 +1,7 @@
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
-import { filter, createFilter, createYearFilter } from './company-filter.js'
-import { fillInformation } from './card.js'
+import { filter, createFilter, createYearFilter } from './filter.js'
+import { fillInformation } from './info.js'
 import { fillGraph } from './graph/graph.js'
 import { graphBtn } from './graph/graph-btn.js'
 import { fillTable } from './table/table.js'
@@ -17,7 +17,6 @@ import {
 import {
   parseCompletedJobs,
   parseApiGraph,
-  formatData,
   getTotal,
   lineGraphData,
   totalLine,
@@ -25,6 +24,7 @@ import {
 } from './data/parse-data.js'
 import { createLineGraph, createRevenueLine } from './graph/line-graph.js'
 
+// TODO: Organise data
 const info = newData
 const jobGraphData = graphData.jobGraphData
 const signupGraphData = graphData.signupGraphData

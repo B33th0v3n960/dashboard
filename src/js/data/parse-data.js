@@ -1,5 +1,11 @@
 import { year, findObjectByName } from './new-data.js'
 
+function companyArr(companies) {
+  const output = []
+  for (let company of companies) output.push(company.companyName)
+  return output
+}
+
 export function parseCompletedJobs(data, year, month) {
   const output = []
   for (let company of data) {
@@ -54,12 +60,6 @@ export function formatData(companies, year) {
     })
   }
 
-  return output
-}
-
-function companyArr(companies) {
-  const output = []
-  for (let company of companies) output.push(company.companyName)
   return output
 }
 

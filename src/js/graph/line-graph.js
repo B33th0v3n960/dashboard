@@ -1,5 +1,3 @@
-import { overall } from '../data/new-data'
-
 export function createLineGraph(id, data, info, totalData) {
   anychart.onDocumentReady(() => {
     const dataSet = anychart.data.set(data)
