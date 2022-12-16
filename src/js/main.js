@@ -1,6 +1,6 @@
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
-import { filterCompany, createFilter } from './company-filter.js'
+import { filter, createFilter, createYearFilter } from './company-filter.js'
 import { fillInformation } from './card.js'
 import { fillGraph } from './graph/graph.js'
 import { graphBtn } from './graph/graph-btn.js'
@@ -33,8 +33,8 @@ const month = now.getMonth()
 const fullYear = now.getFullYear()
 const monthJobData = parseCompletedJobs(info, fullYear, year[month])
 const monthApiData = parseApiGraph(info, fullYear, year[month])
-const companyJobGraphData = getTotal(info, 2021, 'completedJobs')
-const companyRevenueGraphData = getTotal(info, 2021, 'companyIncome')
+const companyJobGraphData = getTotal(info, fullYear, 'completedJobs')
+const companyRevenueGraphData = getTotal(info, fullYear, 'companyIncome')
 const overallRevenueGraphData = overall.revenue
 
 // TODO: use loops to refactor redundant code
@@ -65,23 +65,11 @@ fillGraph(
   'sign-up-graph-tr',
   signupGraphData.today
 )
-// fillGraph(
-//   '#top-company-job-graph',
-//   '#top-company-job-legend',
-//   'top-company-job-graph-tr',
-//   companyJobGraphData
-// )
-// fillGraph(
-//   '#top-company-revenue-graph',
-//   '#top-company-revenue-legend',
-//   'top-company-revenue-graph-tr',
-//   companyRevenueGraphData
-// )
 fillGraph(
   '#overall-revenue-graph',
   '#overall-revenue-legend',
   'overall-revenue-graph-tr',
-  overallRevenueGraphData
+  overallRevenueGraphData[fullYear]
 )
 console.log(overallRevenueGraphData)
 graphBtn(
@@ -100,8 +88,22 @@ graphBtn(
 )
 
 createFilter('#company-filter', info, `- All Companies -`)
-// createFilter('#top-company-job-filter', info, `Total Jobs Completed`)
-// createFilter('#top-company-revenue-filter', info, `Total Income`)
+createYearFilter(
+  `#company-job-year-filter`,
+  [2022, 2021, 2020, 2019, 2018],
+  'This Year'
+)
+createYearFilter(
+  `#company-income-year-filter`,
+  [2022, 2021, 2020, 2019, 2018],
+  'This Year'
+)
+createYearFilter(
+  `#overall-revenue-year-filter`,
+  [2022, 2021, 2020, 2019, 2018],
+  'This Year'
+)
+
 changeTableDate('#date-input')
 
 console.log(info)
@@ -109,71 +111,32 @@ fillInformation('#submitted-jobs', overall.submittedJobs)
 fillInformation('#in-prgress-jobs', overall.inProgressJobs)
 fillInformation('#completed-jobs', overall.completedJobs)
 fillInformation('#cancelled-jobs', overall.cancelledJobs)
-// filterCompany('#company-filter', (value) => {
-//   if (value === 'default') {
-//     fillInformation('#submitted-jobs', overall.submittedJobs)
-//     fillInformation('#in-prgress-jobs', overall.inProgressJobs)
-//     fillInformation('#completed-jobs', overall.completedJobs)
-//     fillInformation('#cancelled-jobs', overall.cancelledJobs)
-//   } else {
-//     const info = findObjectByName(value, newData)
+filter('#company-filter', (value) => {
+  if (value === 'default') {
+    fillInformation('#submitted-jobs', overall.submittedJobs)
+    fillInformation('#in-prgress-jobs', overall.inProgressJobs)
+    fillInformation('#completed-jobs', overall.completedJobs)
+    fillInformation('#cancelled-jobs', overall.cancelledJobs)
+  } else {
+    const info = findObjectByName(value, newData)
 
-//     fillInformation('#submitted-jobs', info.submittedJobs)
-//     fillInformation('#in-prgress-jobs', info.inProgressJobs)
-//     fillInformation('#completed-jobs', info.completedJobs)
-//     fillInformation('#cancelled-jobs', info.cancelledJobs)
-//   }
-// })
-
-// filterCompany('#top-company-job-filter', (value) => {
-//   if (value === 'default') {
-//     fillGraph(
-//       '#top-company-job-graph',
-//       '#top-company-job-legend',
-//       'top-company-job-graph-tr',
-//       companyJobGraphData
-//     )
-//   } else {
-//     const data = findObjectByName(value, formatData(info, fullYear)).job
-//     fillGraph(
-//       '#top-company-job-graph',
-//       '#top-company-job-legend',
-//       'top-company-job-graph-tr',
-//       data
-//     )
-//   }
-// })
-
-// filterCompany('#top-company-revenue-filter', (value) => {
-//   if (value === 'default')
-//     fillGraph(
-//       '#top-company-job-graph',
-//       '#top-company-job-legend',
-//       'top-company-job-graph-tr',
-//       companyRevenueGraphData
-//     )
-//   else {
-//     const data = findObjectByName(value, formatData(info, fullYear)).income
-//     fillGraph(
-//       '#top-company-revenue-graph',
-//       '#top-company-revenue-legend',
-//       'top-company-revenue-graph-tr',
-//       data
-//     )
-//   }
-// })
+    fillInformation('#submitted-jobs', info.submittedJobs)
+    fillInformation('#in-prgress-jobs', info.inProgressJobs)
+    fillInformation('#completed-jobs', info.completedJobs)
+    fillInformation('#cancelled-jobs', info.cancelledJobs)
+  }
+})
 
 const result = formatData(info, 2021)
 console.log(result)
 console.log(info)
 console.log('total', companyJobGraphData)
 console.log('process data:', totalLine(companyJobGraphData))
+
 const jobLineTotal = totalLine(companyJobGraphData)
 const incomeLineTotal = totalLine(companyRevenueGraphData)
-
 const completedJobsLine = lineGraphData(info, 'completedJobs', fullYear)
 createLineGraph('top-company-job', completedJobsLine, info, jobLineTotal)
-
 const companyRevenueLine = lineGraphData(info, 'zoomRevenue', fullYear)
 createLineGraph(
   'company-income-line',
@@ -181,3 +144,54 @@ createLineGraph(
   info,
   incomeLineTotal
 )
+
+filter(`#company-job-year-filter`, (value) => {
+  if (value === 'default') {
+    const total = totalLine(getTotal(info, fullYear, 'completedJobs'))
+    const newLine = lineGraphData(info, 'completedJobs', fullYear)
+    const graph = document.querySelector('#top-company-job')
+    graph.innerHTML = ''
+    createLineGraph('top-company-job', newLine, info, total)
+  } else {
+    const total = totalLine(getTotal(info, value, 'completedJobs'))
+    const newLine = lineGraphData(info, 'completedJobs', value)
+    const graph = document.querySelector('#top-company-job')
+    graph.innerHTML = ''
+    createLineGraph('top-company-job', newLine, info, total)
+  }
+})
+
+filter(`#company-income-year-filter`, (value) => {
+  if (value === 'default') {
+    const total = totalLine(getTotal(info, fullYear, 'zoomRevenue'))
+    const newLine = lineGraphData(info, 'zoomRevenue', fullYear)
+    const graph = document.querySelector('#company-income-line')
+    graph.innerHTML = ''
+    createLineGraph('company-income-line', newLine, info, total)
+  } else {
+    const total = totalLine(getTotal(info, value, 'zoomRevenue'))
+    const newLine = lineGraphData(info, 'zoomRevenue', value)
+    const graph = document.querySelector('#company-income-line')
+    graph.innerHTML = ''
+    createLineGraph('company-income-line', newLine, info, total)
+  }
+})
+
+filter(`#overall-revenue-year-filter`, (value) => {
+  console.log(overallRevenueGraphData[value])
+  if (value === 'default') {
+    fillGraph(
+      '#overall-revenue-graph',
+      '#overall-revenue-legend',
+      'overall-revenue-graph-tr',
+      overallRevenueGraphData[fullYear]
+    )
+  } else {
+    fillGraph(
+      '#overall-revenue-graph',
+      '#overall-revenue-legend',
+      'overall-revenue-graph-tr',
+      overallRevenueGraphData[value]
+    )
+  }
+})

@@ -15,7 +15,20 @@ export function createFilter(id, companies, defaultInput) {
   filter.innerHTML = output
 }
 
-export function filterCompany(id, callback) {
+export function createYearFilter(id, years, defaultInput) {
+  let output = `<option value="default" selected>${defaultInput}</option>`
+  const filter = document.querySelector(id)
+
+  for (let year of years) {
+    output += `<option value="${year}">
+                  ${year}
+               </option>`
+  }
+
+  filter.innerHTML = output
+}
+
+export function filter(id, callback) {
   const filter = document.querySelector(id)
   filter.addEventListener('input', () => {
     callback(filter.value)

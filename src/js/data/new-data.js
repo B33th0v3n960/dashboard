@@ -160,8 +160,16 @@ export const layoutData = {
   },
 }
 
+function yearsData(years) {
+  const output = {}
+  for (let currentYear of years) {
+    output[currentYear] = [...generateGraphData(year, 0, 100)]
+  }
+  return output
+}
+
 export const overall = {
-  revenue: [...generateGraphData(year, 0, 100)],
+  revenue: yearsData([2022, 2021, 2019, 2018, 2017]),
   submittedJobs: getRandomIntInclusive(700, 1500),
   inProgressJobs: getRandomIntInclusive(700, 1500),
   completedJobs: getRandomIntInclusive(700, 1500),
