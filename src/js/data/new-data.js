@@ -169,7 +169,7 @@ function yearsData(years) {
 }
 
 export const overall = {
-  revenue: yearsData([2022, 2021, 2019, 2018, 2017]),
+  revenue: yearsData([2022, 2021, 2020, 2019, 2018, 2017]),
   submittedJobs: getRandomIntInclusive(700, 1500),
   inProgressJobs: getRandomIntInclusive(700, 1500),
   completedJobs: getRandomIntInclusive(700, 1500),
