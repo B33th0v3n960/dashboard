@@ -69,10 +69,12 @@ export function getTotal(companies, yearInput, key) {
   const companyArray = [...companyArr(companies)]
   for (let month of year) {
     let total = 0
-    for (let company of companyArray)
+    for (let company of companyArray) {
+      console.log(findObjectByName(company, companies).data[yearInput])
       total += findObjectByName(company, companies).data[yearInput][month].job[
         key
       ]
+    }
     output.push({ barLegend: month, value: total })
   }
 
