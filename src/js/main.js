@@ -1,42 +1,58 @@
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
-import { data } from './data.js'
-import { filterCompany } from './company-filter.js'
-import { fillInformation } from './card.js'
+import { filter, createFilter, createYearFilter } from './filter.js'
+import { fillInformation } from './info.js'
 import { fillGraph } from './graph/graph.js'
 import { graphBtn } from './graph/graph-btn.js'
 import { fillTable } from './table/table.js'
-import { changeTableDate } from './table/job-date.js'
-import { topCompany } from './graph/top-company.js'
+import { changeTableDate } from './date.js'
+import {
+  newData,
+  graphData,
+  year,
+  layoutData,
+  overall,
+  findObjectByName,
+} from './data/new-data.js'
+import {
+  parseCompletedJobs,
+  parseApiGraph,
+  getTotal,
+  lineGraphData,
+  totalLine,
+  overallRevenueLineData,
+} from './data/parse-data.js'
+import { createLineGraph, createRevenueLine } from './graph/line-graph.js'
 
-const info = data.companyA
-const job = info.job
-const api = info.api
-const jobGraphData = info.jobGraphData
-const signupGraphData = info.signupGraphData
-
+// TODO: Organise data
+const info = newData
+const jobGraphData = graphData.jobGraphData
+const signupGraphData = graphData.signupGraphData
 const now = new Date()
-const month = `${now.getFullYear()}-${now.getMonth() + 1}`
-const monthJobData = job[month]
-const monthApiData = api[month]
-const companyJobGraphData = topCompany(monthJobData.data, 'completedJobs')
-const companyRevenueGraphData = topCompany(monthJobData.data, 'companyIncome')
-const overallRevenueGraphData = info.overallRevenueGraphData
+const month = now.getMonth()
+const fullYear = now.getFullYear()
+const monthJobData = parseCompletedJobs(info, fullYear, year[month])
+const monthApiData = parseApiGraph(info, fullYear, year[month])
+const companyJobGraphData = getTotal(info, fullYear, 'completedJobs')
+const companyRevenueGraphData = getTotal(info, fullYear, 'companyIncome')
+const overallRevenueGraphData = overall.revenue
 
+// TODO: use loops to refactor redundant code
 fillTable(
   '#job-table',
   '#job-thead',
   '#job-tbody',
-  monthJobData.header,
-  monthJobData.data
+  layoutData.jobHeader,
+  monthJobData
 )
 fillTable(
   '#api-table',
   '#api-thead',
   '#api-tbody',
-  monthApiData.header,
-  monthApiData.data
+  layoutData.apiHeader,
+  monthApiData
 )
+
 fillGraph(
   '#job-overview-graph',
   '#job-legend',
@@ -49,25 +65,6 @@ fillGraph(
   'sign-up-graph-tr',
   signupGraphData.today
 )
-fillGraph(
-  '#top-company-job-graph',
-  '#top-company-job-legend',
-  'top-company-job-graph-tr',
-  companyJobGraphData
-)
-fillGraph(
-  '#top-company-revenue-graph',
-  '#top-company-revenue-legend',
-  'top-company-revenue-graph-tr',
-  companyRevenueGraphData
-)
-fillGraph(
-  '#overall-revenue-graph',
-  '#overall-revenue-legend',
-  'overall-revenue-graph-tr',
-  overallRevenueGraphData
-)
-
 graphBtn(
   '#job-overview-radio',
   '#job-overview-graph',
@@ -83,15 +80,111 @@ graphBtn(
   signupGraphData
 )
 
-changeTableDate('#date-input', 'companyA')
-filterCompany('#company-filter')
-
-fillInformation('#submitted-jobs', info.submittedJobs)
-fillInformation('#in-prgress-jobs', info.inProgressJobs)
-fillInformation('#completed-jobs', info.completedJobs)
-fillInformation('#cancelled-jobs', info.cancelledJobs)
-
-fillInformation(
-  '#top-company-job-total',
-  `Total: ${companyJobGraphData[0].value}`
+createFilter('#company-filter', info, `- All Companies -`)
+createYearFilter(
+  `#company-job-year-filter`,
+  [2022, 2021, 2020, 2019, 2018],
+  'This Year'
 )
+createYearFilter(
+  `#company-income-year-filter`,
+  [2022, 2021, 2020, 2019, 2018],
+  'This Year'
+)
+createYearFilter(
+  `#overall-revenue-year-filter`,
+  [2022, 2021, 2020, 2019, 2018],
+  'This Year'
+)
+
+changeTableDate('#date-input')
+
+fillInformation('#submitted-jobs', overall.submittedJobs)
+fillInformation('#in-prgress-jobs', overall.inProgressJobs)
+fillInformation('#completed-jobs', overall.completedJobs)
+fillInformation('#cancelled-jobs', overall.cancelledJobs)
+filter('#company-filter', (value) => {
+  if (value === 'default') {
+    fillInformation('#submitted-jobs', overall.submittedJobs)
+    fillInformation('#in-prgress-jobs', overall.inProgressJobs)
+    fillInformation('#completed-jobs', overall.completedJobs)
+    fillInformation('#cancelled-jobs', overall.cancelledJobs)
+  } else {
+    const info = findObjectByName(value, newData)
+
+    fillInformation('#submitted-jobs', info.submittedJobs)
+    fillInformation('#in-prgress-jobs', info.inProgressJobs)
+    fillInformation('#completed-jobs', info.completedJobs)
+    fillInformation('#cancelled-jobs', info.cancelledJobs)
+  }
+})
+
+const jobLineTotal = totalLine(companyJobGraphData)
+const incomeLineTotal = totalLine(companyRevenueGraphData)
+const completedJobsLine = lineGraphData(info, 'completedJobs', fullYear)
+createLineGraph('top-company-job', completedJobsLine, info, jobLineTotal)
+const companyRevenueLine = lineGraphData(info, 'zoomRevenue', fullYear)
+createLineGraph(
+  'company-income-line',
+  companyRevenueLine,
+  info,
+  incomeLineTotal
+)
+
+filter(`#company-job-year-filter`, (value) => {
+  if (value === 'default') {
+    const total = totalLine(getTotal(info, fullYear, 'completedJobs'))
+    const newLine = lineGraphData(info, 'completedJobs', fullYear)
+    const graph = document.querySelector('#top-company-job')
+    graph.innerHTML = ''
+    createLineGraph('top-company-job', newLine, info, total)
+  } else {
+    const total = totalLine(getTotal(info, value, 'completedJobs'))
+    const newLine = lineGraphData(info, 'completedJobs', value)
+    const graph = document.querySelector('#top-company-job')
+    graph.innerHTML = ''
+    createLineGraph('top-company-job', newLine, info, total)
+  }
+})
+
+filter(`#company-income-year-filter`, (value) => {
+  if (value === 'default') {
+    const total = totalLine(getTotal(info, fullYear, 'zoomRevenue'))
+    const newLine = lineGraphData(info, 'zoomRevenue', fullYear)
+    const graph = document.querySelector('#company-income-line')
+    graph.innerHTML = ''
+    createLineGraph('company-income-line', newLine, info, total)
+  } else {
+    const total = totalLine(getTotal(info, value, 'zoomRevenue'))
+    const newLine = lineGraphData(info, 'zoomRevenue', value)
+    const graph = document.querySelector('#company-income-line')
+    graph.innerHTML = ''
+    createLineGraph('company-income-line', newLine, info, total)
+  }
+})
+
+const overallLineData = overallRevenueLineData(
+  overallRevenueGraphData,
+  fullYear
+)
+createRevenueLine('overall-revenue-line', overallLineData, info)
+
+filter(`#overall-revenue-year-filter`, (value) => {
+  if (value === 'default') {
+    const overallLineData = overallRevenueLineData(
+      overallRevenueGraphData,
+      fullYear
+    )
+    const graph = document.querySelector('#overall-revenue-line')
+    graph.innerHTML = ''
+    createRevenueLine('overall-revenue-line', overallLineData, info)
+  } else {
+    const overallLineData = overallRevenueLineData(
+      overallRevenueGraphData,
+      value
+    )
+    const graph = document.querySelector('#overall-revenue-line')
+    graph.innerHTML = ''
+    createRevenueLine('overall-revenue-line', overallLineData, info)
+  }
+})
