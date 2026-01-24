@@ -70,7 +70,6 @@ export function getTotal(companies, yearInput, key) {
   for (let month of year) {
     let total = 0
     for (let company of companyArray) {
-      console.log(findObjectByName(company, companies).data[yearInput])
       total += findObjectByName(company, companies).data[yearInput][month].job[
         key
       ]
